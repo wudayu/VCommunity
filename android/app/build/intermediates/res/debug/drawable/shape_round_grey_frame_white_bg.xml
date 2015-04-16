@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape>
+            <solid android:color="@color/letter_grey_deep_13" />
+            <corners android:radius="@dimen/round_corner" />
+        </shape>
+    </item>
+    <item
+        android:bottom="1px"
+        android:left="1px"
+        android:right="1px"
+        android:top="1px">
+        <shape>
+            <solid android:color="@color/letter_grey_deep_16" />
+            <corners android:radius="@dimen/round_corner" />
+        </shape>
+    </item>
+</layer-list><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/drawable/shape_round_grey_frame_white_bg.xml -->
