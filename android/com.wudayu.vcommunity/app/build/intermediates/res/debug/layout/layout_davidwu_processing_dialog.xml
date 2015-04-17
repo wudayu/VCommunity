@@ -19,4 +19,4 @@
         android:layout_marginTop="@dimen/padding_processing_dialog"
         android:text="@string/str_loading"
         android:textColor="@color/letter_grey_deep_full" />
-</RelativeLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/layout/layout_davidwu_processing_dialog.xml -->
+</RelativeLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/layout/layout_davidwu_processing_dialog.xml -->

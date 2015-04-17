@@ -9,4 +9,4 @@
         android:duration="200"
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
-</set><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/anim/push_bottom_in.xml -->
+</set><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/anim/push_bottom_in.xml -->

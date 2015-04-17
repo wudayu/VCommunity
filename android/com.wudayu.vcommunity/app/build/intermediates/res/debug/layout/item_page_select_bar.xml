@@ -21,4 +21,4 @@
         android:text="@string/app_name"
         android:textColor="@color/letter_grey_deep_2"
         android:textSize="@dimen/px22" />
-</RelativeLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/layout/item_page_select_bar.xml -->
+</RelativeLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/layout/item_page_select_bar.xml -->

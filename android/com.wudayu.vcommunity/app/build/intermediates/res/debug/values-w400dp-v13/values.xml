@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/values-w400dp/dimens.xml -->
+    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/values-w400dp/dimens.xml -->
     <eat-comment/>
     <dimen name="dp01">1dp</dimen>
     <dimen name="dp02">3dp</dimen>

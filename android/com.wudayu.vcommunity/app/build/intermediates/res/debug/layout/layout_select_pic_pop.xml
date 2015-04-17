@@ -49,4 +49,4 @@
             android:textColor="@color/letter_grey_deep_full"
             android:textSize="@dimen/px38" />
     </LinearLayout>
-</RelativeLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/layout/layout_select_pic_pop.xml -->
+</RelativeLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/layout/layout_select_pic_pop.xml -->

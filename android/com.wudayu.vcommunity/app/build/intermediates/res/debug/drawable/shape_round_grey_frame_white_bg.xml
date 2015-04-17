@@ -16,4 +16,4 @@
             <corners android:radius="@dimen/round_corner" />
         </shape>
     </item>
-</layer-list><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/drawable/shape_round_grey_frame_white_bg.xml -->
+</layer-list><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/drawable/shape_round_grey_frame_white_bg.xml -->

@@ -4,4 +4,4 @@
     android:layout_height="@dimen/dp125"
     android:contentDescription="@null"
     android:scaleType="centerCrop" >
-</ImageView><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/layout/item_img_banner_view.xml -->
+</ImageView><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/layout/item_img_banner_view.xml -->

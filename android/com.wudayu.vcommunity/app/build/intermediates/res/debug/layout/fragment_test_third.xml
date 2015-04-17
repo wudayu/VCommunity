@@ -10,4 +10,4 @@
         android:layout_height="@dimen/dp100"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@null" />
-</LinearLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/layout/fragment_test_third.xml -->
+</LinearLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/layout/fragment_test_third.xml -->

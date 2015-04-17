@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/values-zh/strings.xml -->
+    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/values-zh/strings.xml -->
     <eat-comment/>
     <string name="app_name">Wudayu Framework</string>
     <string name="btn_pick_photo">选择照片</string>

@@ -107,4 +107,4 @@
             android:textColor="@color/letter_grey_deep_full"
             android:textSize="@dimen/px30" />
     </LinearLayout>
-</LinearLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/layout/activity_trading_result.xml -->
+</LinearLayout><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/layout/activity_trading_result.xml -->

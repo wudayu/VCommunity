@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/values/colors.xml -->
+    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="bg_rl_checkin">#FFFAA701</color>
     <color name="col_app">#FFF9A71A</color>
@@ -32,7 +32,7 @@
     <color name="transparent_white_100_100">#FFFFFFFF</color>
     <color name="transparent_white_60_100">#9DFFFFFF</color>
     <color name="transparent_white_80_100">#C8FFFFFF</color>
-    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="dp01">1dp</dimen>
     <dimen name="dp02">2dp</dimen>
@@ -184,7 +184,7 @@
     <dimen name="round_corner_circle">200dp</dimen>
     <dimen name="round_corner_small">3dp</dimen>
     <dimen name="side_processing_circle">23dp</dimen>
-    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="app_name">Wudayu Framework</string>
     <string name="btn_pick_photo">Choose a Photo</string>
@@ -203,7 +203,7 @@
     <string name="str_double_close">Press once again to exit</string>
     <string name="str_loading">Loading…</string>
     <string name="tv_test_activity_test">testteste\ntest</string>
-    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

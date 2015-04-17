@@ -25,4 +25,4 @@
     <item
         android:drawable="@drawable/processing_circle_08"
         android:duration="50"/>
-</animation-list><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/drawable/processing_dialog_animation.xml -->
+</animation-list><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/drawable/processing_dialog_animation.xml -->

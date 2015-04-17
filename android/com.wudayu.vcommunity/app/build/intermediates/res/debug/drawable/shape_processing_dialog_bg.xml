@@ -2,4 +2,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
     <solid android:color="@color/transparent_black_80_100" />
     <corners android:radius="@dimen/round_corner" />
-</shape><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/app/src/main/res/drawable/shape_processing_dialog_bg.xml -->
+</shape><!-- From: file:/Users/David/Documents/Git.repo/VCommunity/android/com.wudayu.vcommunity/app/src/main/res/drawable/shape_processing_dialog_bg.xml -->
