@@ -26,8 +26,8 @@ import com.wudayu.vcommunity.handler.UILImageHandler;
 import com.wudayu.vcommunity.model.DafUser;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
-import com.wudayu.vcommunity.net.protocol.DafStringResult;
-import com.wudayu.vcommunity.net.protocol.DafUserResult;
+import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.views.ProcessingDialog;
 
 /**
@@ -90,9 +90,9 @@ public class TestThirdFragment extends BaseFragment {
 		processingDialog = new ProcessingDialog(this.getActivity(), true, null);
 		processingDialog.show();
 
-		netHandler.getForUserInfo(CURR_USER_ID, new Callback<DafUserResult>() {
+		netHandler.getForUserInfo(CURR_USER_ID, new Callback<VcUserResult>() {
 			@Override
-			public void success(DafUserResult result, Response response) {
+			public void success(VcUserResult result, Response response) {
 				Utils.debug("result = " + result);
 				imageHandler.loadHeaderImage(result.getResultSuccess() ? result.getObjValue().getPhotosrc() : "", ivHeader);
 				dismissProcessingDialog();
@@ -149,9 +149,9 @@ public class TestThirdFragment extends BaseFragment {
 	void uploadPic(String filePath) {
 		processingDialog = new ProcessingDialog(this.getActivity(), "Uploading ...", false, null);
 		processingDialog.show();
-		netHandler.postForUploadPic(CURR_USER_ID, filePath, new Callback<DafStringResult>() {
+		netHandler.postForUploadPic(CURR_USER_ID, filePath, new Callback<VcStringResult>() {
 			@Override
-			public void success(DafStringResult result, Response response) {
+			public void success(VcStringResult result, Response response) {
 				uploadedUUid = result.getStr();
 				dismissProcessingDialog();
 			}

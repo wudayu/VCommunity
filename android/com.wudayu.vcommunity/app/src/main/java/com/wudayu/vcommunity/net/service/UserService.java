@@ -4,7 +4,7 @@ import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
-import com.wudayu.vcommunity.net.protocol.DafUserResult;
+import com.wudayu.vcommunity.net.protocol.VcUserResult;
 
 /**
  *
@@ -19,5 +19,5 @@ import com.wudayu.vcommunity.net.protocol.DafUserResult;
 public interface UserService {
 	/** Get User Info */
 	@GET("/rest/broker/getBrokerInfo")
-	void getUser(@Query("id") String userId, @Query("fromApp") String fromApp, Callback<DafUserResult> cb);
+	void getUser(@Query("id") String userId, @Query("fromApp") String fromApp, Callback<VcUserResult> cb);
 }

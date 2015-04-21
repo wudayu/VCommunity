@@ -11,8 +11,8 @@ import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.model.TypedImage;
 import com.wudayu.vcommunity.net.converter.JacksonConverter;
-import com.wudayu.vcommunity.net.protocol.DafStringResult;
-import com.wudayu.vcommunity.net.protocol.DafUserResult;
+import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
 import com.wudayu.vcommunity.net.service.ImageService;
 import com.wudayu.vcommunity.net.service.UserService;
@@ -63,12 +63,12 @@ public class RetrofitNetHandler implements INetHandler {
 	}
 
 	@Override
-	public void getForUserInfo(String userId, Callback<DafUserResult> cb) {
+	public void getForUserInfo(String userId, Callback<VcUserResult> cb) {
 		generalAdpater.create(UserService.class).getUser(userId, "0", cb);
 	}
 
 	@Override
-	public void postForUploadPic(String relationId, String imagePath, Callback<DafStringResult> cb) {
+	public void postForUploadPic(String relationId, String imagePath, Callback<VcStringResult> cb) {
 		generalAdpater.create(ImageService.class).uploadPic(relationId, new TypedImage(imagePath), cb);
 	}
 

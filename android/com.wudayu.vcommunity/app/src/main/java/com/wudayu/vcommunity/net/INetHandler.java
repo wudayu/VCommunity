@@ -2,8 +2,8 @@ package com.wudayu.vcommunity.net;
 
 import retrofit.Callback;
 
-import com.wudayu.vcommunity.net.protocol.DafStringResult;
-import com.wudayu.vcommunity.net.protocol.DafUserResult;
+import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
 
 /**
@@ -58,9 +58,9 @@ public interface INetHandler {
 	public void getForWeather(String code, Callback<WeatherResult> cb);
 
 	/** Get User Info */
-	public void getForUserInfo(String userId, Callback<DafUserResult> cb);
+	public void getForUserInfo(String userId, Callback<VcUserResult> cb);
 
 	/** Upload Picture */
-	public void postForUploadPic(String relationId, String imagePath, Callback<DafStringResult> cb);
+	public void postForUploadPic(String relationId, String imagePath, Callback<VcStringResult> cb);
 
 }

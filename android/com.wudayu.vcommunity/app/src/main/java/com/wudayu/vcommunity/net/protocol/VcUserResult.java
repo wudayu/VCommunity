@@ -14,7 +14,7 @@ import com.wudayu.vcommunity.model.DafUser;
  **/
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DafUserResult extends BaseResult {
+public class VcUserResult extends BaseResult {
 
 	private DafUser objValue;
 

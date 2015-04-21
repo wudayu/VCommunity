@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  **/
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DafStringResult extends BaseResult {
+public class VcStringResult extends BaseResult {
 
 	@JsonProperty(value = "objValue")
 	private String str;

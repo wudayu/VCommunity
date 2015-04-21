@@ -10,7 +10,7 @@ import com.wudayu.vcommunity.db.OrmliteDbHandler;
 import com.wudayu.vcommunity.model.DafUser;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
-import com.wudayu.vcommunity.net.protocol.DafUserResult;
+import com.wudayu.vcommunity.net.protocol.VcUserResult;
 
 /**
  *
@@ -42,7 +42,7 @@ public class DataHandler implements IDataHandler {
 
 	@Override
 	public void getForUserInfo(final String userId, final DataCallback<DafUser> dcb) {
-		Callback<DafUserResult> cbRetrofit = new Callback<DafUserResult>() {
+		Callback<VcUserResult> cbRetrofit = new Callback<VcUserResult>() {
 			@Override
 			public void failure(RetrofitError error) {
 				RetrofitNetHandler.toastNetworkError(sContext, error);
@@ -50,7 +50,7 @@ public class DataHandler implements IDataHandler {
 				sDbHandler.getForUserInfo(userId, dcb);
 			}
 			@Override
-			public void success(DafUserResult result, Response response) {
+			public void success(VcUserResult result, Response response) {
 				// 获取到数据，首先写入数据库
 				DafUser user = result.getObjValue();
 				sDbHandler.setForUserInfo(user);
