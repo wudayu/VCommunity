@@ -12,5 +12,5 @@
 target/
 logs/
 
-＃ osx files
+# OSX files
 .DS_Store
