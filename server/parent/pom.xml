@@ -149,6 +149,14 @@
                 <scope>runtime</scope>
             </dependency>
             <!-- connection pool end -->
+
+            <!-- database connector -->
+            <dependency>
+                <groupId>${jdbc.group.id}</groupId>
+                <artifactId>${jdbc.artifact.id}</artifactId>
+                <version>${jdbc.version}</version>
+            </dependency>
+            <!-- database connector -->
             <!-- Persistence End -->
 
             <!-- WEB Begin -->
