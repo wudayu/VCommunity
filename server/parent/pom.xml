@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- 定义VCommunity的所有依赖，项目升级可以直接在此改相应的版本号后再打包发布 -->
-    <groupId>com.vcommuntiy</groupId>
+    <groupId>com.vcommunity</groupId>
     <artifactId>server-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -62,11 +62,10 @@
         <dependencies>
             <!-- Spring Begin -->
             <dependency>
-                <groupId>cn.org.springframework</groupId>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${spring.version}</version>
                 <exclusions>
-                    <!-- 使用logback作为日志记录框架 -->
                     <exclusion>
                         <groupId>commons-logging</groupId>
                         <artifactId>commons-logging</artifactId>
@@ -74,11 +73,10 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>cn.org.springframework</groupId>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
                 <exclusions>
-                    <!-- 使用logback作为日志记录框架 -->
                     <exclusion>
                         <groupId>commons-logging</groupId>
                         <artifactId>commons-logging</artifactId>
