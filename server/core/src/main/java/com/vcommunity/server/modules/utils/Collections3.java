@@ -84,13 +84,11 @@ public class Collections3 {
 			return null;
 		}
 
-		// 当类型为List时，直接取得�?后一个元�? �?
 		if (collection instanceof List) {
 			List<T> list = (List<T>) collection;
 			return list.get(list.size() - 1);
 		}
 
-		// 其他类型通过iterator滚动到最后一个元�?.
 		Iterator<T> iterator = collection.iterator();
 		while (true) {
 			T current = iterator.next();
