@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author James Chow
  * @createdate 2015/4/23
- * @contact zhouxy.vortex@gamil.com
+ * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
 @Controller
