@@ -33,6 +33,14 @@ public class TestUserEntityServiceTest extends SpringTransactionalTestCase {
         assertThat(list.size()).isEqualTo(1);
     }
 
+    @Test
+    public void testUserEntityServiceFindOne() {
+        TestUserEntity testUserEntity = testUserEntityService.findUserByJpa("19506268550842b6b05bb5e3c0f618ce");
+        assertThat(testUserEntity.getUserName()).isEqualTo("James Chow");
+        testUserEntity = testUserEntityService.findUserByMyBatis("19506268550842b6b05bb5e3c0f618ce");
+        assertThat(testUserEntity.getUserName()).isEqualToIgnoringCase("James Chow");
+    }
+
     public TestUserEntityService getTestUserEntityService() {
         return testUserEntityService;
     }
