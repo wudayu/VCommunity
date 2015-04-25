@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * @author James Chow
@@ -39,21 +40,47 @@ public class TestUserEntityRestController {
         executionMetrics = MetricRegistry.INSTANCE.timer("REST.GetUser");
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public @ResponseBody TestUserEntityDTO getUser(@PathVariable("id") String uuid) {
+    @RequestMapping(value = "/{id}")
+    public @ResponseBody Message getUser(@PathVariable("id") String uuid) {
         final Timer.TimerContext executionTimer = executionMetrics.start();
 
         try {
             TestUserEntity testUserEntity = testUserEntityService.findUserByJpa(uuid);
+            Message rtnMessage = new Message();
 
             if (null == testUserEntity) {
                 String message = "Could not find the user by uuid : " + uuid;
                 logger.warn(message);
+                rtnMessage.setMessage(message);
+                rtnMessage.setSuccess(false);
                 throw new RestException(HttpStatus.NOT_FOUND, message);
             }
 
             TestUserEntityDTO userEntityDTO = BeanMapper.map(testUserEntity, TestUserEntityDTO.class);
-            return userEntityDTO;
+            rtnMessage.setData(userEntityDTO);
+            rtnMessage.setSuccess(true);
+            rtnMessage.setMessageType(Message.MESSAGE_TYPE_NORMAL);
+            rtnMessage.setMessage("Get userEntity success.");
+            return rtnMessage;
+        } finally {
+            executionTimer.stop();
+        }
+    }
+
+    @RequestMapping(value = "")
+    public @ResponseBody Message findAllUser() {
+        final Timer.TimerContext executionTimer = executionMetrics.start();
+
+        try {
+            List<TestUserEntity> list = testUserEntityService.findAllByJpa();
+            Message rtnMessage = new Message();
+
+            List<TestUserEntityDTO> userEntityDTO = BeanMapper.mapList(list, TestUserEntityDTO.class);
+            rtnMessage.setData(userEntityDTO);
+            rtnMessage.setSuccess(true);
+            rtnMessage.setMessageType(Message.MESSAGE_TYPE_NORMAL);
+            rtnMessage.setMessage("Get userEntity success.");
+            return rtnMessage;
         } finally {
             executionTimer.stop();
         }

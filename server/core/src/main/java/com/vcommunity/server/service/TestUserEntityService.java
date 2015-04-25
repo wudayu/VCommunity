@@ -4,6 +4,8 @@ import com.vcommunity.server.entity.TestUserEntity;
 import com.vcommunity.server.repository.jpa.TestUserEntityJpaRepository;
 import com.vcommunity.server.repository.mybatis.TestUserEntityMyBatisRepository;
 import org.javasimon.aop.Monitored;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +22,9 @@ import java.util.List;
 @Transactional
 @Monitored
 public class TestUserEntityService {
+
+    private static Logger logger = LoggerFactory.getLogger(TestUserEntityService.class);
+
     private TestUserEntityJpaRepository testUserEntityJpaRepository;
 
     private TestUserEntityMyBatisRepository testUserEntityMyBatisRepository;
@@ -42,6 +47,22 @@ public class TestUserEntityService {
 
     public TestUserEntityJpaRepository getTestUserEntityJpaRepository() {
         return testUserEntityJpaRepository;
+    }
+
+    public void save(TestUserEntity testUserEntity) {
+        try {
+            testUserEntityJpaRepository.save(testUserEntity);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    public void saveByMyBatis(TestUserEntity testUserEntity) {
+        try {
+            testUserEntityMyBatisRepository.insertUser(testUserEntity);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
     }
 
     @Autowired

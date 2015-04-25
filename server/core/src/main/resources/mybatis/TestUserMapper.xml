@@ -13,4 +13,9 @@
 		FROM t_test_user
 		WHERE uuid = #{uuid}
 	</select>
+
+	<insert id="insertUser" parameterType="TestUserEntity">
+		INSERT INTO t_test_user(uuid, create_date, modify_date, user_name, age)
+		VALUE(#{uuid}, #{createDate}, #{modifyDate}, #{userName}, #{age})
+	</insert>
 </mapper>

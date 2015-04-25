@@ -11,7 +11,9 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author James Chow
@@ -25,20 +27,53 @@ import java.util.List;
 public class TestUserEntityServiceTest extends SpringTransactionalTestCase {
     private TestUserEntityService testUserEntityService;
 
+    /**
+     * Test Jpa service function.
+     */
     @Test
     public void testUserEntityService() {
+        TestUserEntity testUserEntity = new TestUserEntity();
+        testUserEntity.setAge(25);
+        testUserEntity.setUserName("James Chow");
+        testUserEntity.setCreateDate(new Date());
+        testUserEntity.setModifyDate(new Date());
+
+        testUserEntityService.save(testUserEntity);
+
+        // the userEntity object commit to the db, then have the uuid attribute
+        assertThat(testUserEntity.getUuid()).isNotNull();
+        String entityUuid = testUserEntity.getUuid();
+
+        // test for Jpa find function.
+        TestUserEntity findUserEntity = testUserEntityService.findUserByJpa(entityUuid);
+        assertThat(findUserEntity.getUserName()).isEqualTo("James Chow");
+
+        // test for Jpa findAll function.
         List<TestUserEntity> list = testUserEntityService.findAllByJpa();
         assertThat(list.size()).isEqualTo(1);
-        list = testUserEntityService.findAllByMyBatis();
-        assertThat(list.size()).isEqualTo(1);
+
     }
 
+    /**
+     * Test TestUserEntityService MyBatis function.
+     */
     @Test
-    public void testUserEntityServiceFindOne() {
-        TestUserEntity testUserEntity = testUserEntityService.findUserByJpa("19506268550842b6b05bb5e3c0f618ce");
-        assertThat(testUserEntity.getUserName()).isEqualTo("James Chow");
-        testUserEntity = testUserEntityService.findUserByMyBatis("19506268550842b6b05bb5e3c0f618ce");
-        assertThat(testUserEntity.getUserName()).isEqualToIgnoringCase("James Chow");
+    public void testUserMyBatisService() {
+        TestUserEntity testUserEntity = new TestUserEntity();
+        testUserEntity.setAge(25);
+        testUserEntity.setUserName("James Chow");
+        testUserEntity.setCreateDate(new Date());
+        testUserEntity.setModifyDate(new Date());
+        testUserEntity.setUuid(UUID.randomUUID().toString().replaceAll("-", ""));
+
+        testUserEntityService.saveByMyBatis(testUserEntity);
+
+        TestUserEntity findUserEntity = testUserEntityService.findUserByMyBatis(testUserEntity.getUuid());
+        assertThat(findUserEntity.getUserName()).isEqualTo("James Chow");
+
+        List<TestUserEntity> list = testUserEntityService.findAllByMyBatis();
+        assertThat(list.size()).isEqualTo(1);
+
     }
 
     public TestUserEntityService getTestUserEntityService() {

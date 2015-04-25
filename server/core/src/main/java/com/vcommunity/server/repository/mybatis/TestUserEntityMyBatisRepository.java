@@ -16,4 +16,6 @@ public interface TestUserEntityMyBatisRepository {
     List<TestUserEntity> findAll();
 
     TestUserEntity findOne(String uuid);
+
+    void insertUser(TestUserEntity testUserEntity);
 }
