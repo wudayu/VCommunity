@@ -26,6 +26,7 @@ import com.wudayu.vcommunity.handler.UILImageHandler;
 import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
+import com.wudayu.vcommunity.net.protocol.VcListResult;
 import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.views.ProcessingDialog;
@@ -151,6 +152,7 @@ public class TestThirdFragment extends BaseFragment {
 	void uploadPic(String filePath) {
 		processingDialog = new ProcessingDialog(this.getActivity(), "Uploading ...", false, null);
 		processingDialog.show();
+        /*
 		netHandler.postForUploadPic(CURR_USER_ID, filePath, new Callback<VcObjectResult<String>>() {
 			@Override
 			public void success(VcObjectResult<String> result, Response response) {
@@ -160,9 +162,44 @@ public class TestThirdFragment extends BaseFragment {
 			@Override
 			public void failure(RetrofitError error) {
 				RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                Utils.debug("error = " + error);
 				dismissProcessingDialog();
 			}
 		});
+		*/
+
+        netHandler.postForUploadTestPic(filePath, new Callback<VcObjectResult<String>>() {
+            @Override
+            public void success(VcObjectResult<String> result, Response response) {
+                uploadedUUid = result.getObject();
+                Utils.debug("uploadedUUid = " + uploadedUUid);
+                dismissProcessingDialog();
+            }
+            @Override
+            public void failure(RetrofitError error) {
+                RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                Utils.debug("error = " + error);
+                dismissProcessingDialog();
+            }
+        });
+
+        /*
+        netHandler.postForUploadTestMultiPic(new String[]{filePath, filePath}, new Callback<VcListResult<String>>() {
+            @Override
+            public void success(VcListResult<String> result, Response response) {
+                // uploadedUUid = result.getObject();
+                Utils.debug("uploadedUUids = " + result.getList());
+                dismissProcessingDialog();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                Utils.debug("error = " + error);
+                dismissProcessingDialog();
+            }
+        });
+        */
 	}
 
 }

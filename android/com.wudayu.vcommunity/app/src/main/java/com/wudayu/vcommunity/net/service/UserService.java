@@ -2,8 +2,10 @@ package com.wudayu.vcommunity.net.service;
 
 import retrofit.Callback;
 import retrofit.http.GET;
+import retrofit.http.Path;
 import retrofit.http.Query;
 
+import com.wudayu.vcommunity.model.VcTestUser;
 import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
@@ -22,4 +24,9 @@ public interface UserService {
 	/** Get User Info */
 	@GET("/rest/broker/getBrokerInfo")
 	void getUser(@Query("id") String userId, @Query("fromApp") String fromApp, Callback<VcObjectResult<VcUser>> cb);
+
+    // TODO remove this
+    @GET("/api/v1/user/{userId}")
+    void getTestUser(@Path("userId") String userId, Callback<VcObjectResult<VcTestUser>> cb);
+
 }

@@ -69,7 +69,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			dao.executeRaw("UPDATE `DuduContact` SET  remark = dudu_nickname;");
 			// 触发联系人操作
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}*/

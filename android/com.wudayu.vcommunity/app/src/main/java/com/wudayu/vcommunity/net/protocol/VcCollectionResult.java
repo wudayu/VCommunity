@@ -14,19 +14,19 @@ import java.util.Collection;
 public class VcCollectionResult<T> extends BaseResult {
 
     @JsonProperty(value = "data")
-    private Collection<T> object;
+    private Collection<T> collection;
 
-    public Collection<T> getObject() {
-        return object;
+    public Collection<T> getCollection() {
+        return collection;
     }
 
-    public void setObject(Collection<T> object) {
-        this.object = object;
+    public void setCollection(Collection<T> collection) {
+        this.collection = collection;
     }
 
     @Override
     public String toString() {
-        return "VcListResult{" + "object=" + object + '}';
+        return "VcCollectionResult{" + "collection=" + collection + '}';
     }
     
 }

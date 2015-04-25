@@ -57,7 +57,7 @@ public class DataHandler implements IDataHandler {
 				dcb.onSuccess(user);
 			}
 		};
-		sNetHandler.getForUserInfo(userId, cbRetrofit);
+//		sNetHandler.getForUserInfo(userId, cbRetrofit);
 	}
 
 }

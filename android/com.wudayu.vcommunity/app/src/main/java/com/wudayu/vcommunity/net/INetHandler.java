@@ -2,7 +2,9 @@ package com.wudayu.vcommunity.net;
 
 import retrofit.Callback;
 
+import com.wudayu.vcommunity.model.VcTestUser;
 import com.wudayu.vcommunity.model.VcUser;
+import com.wudayu.vcommunity.net.protocol.VcListResult;
 import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
@@ -23,7 +25,7 @@ public interface INetHandler {
 	public static final String PREFIX_HTTP = "http://";
 	public static final String PREFIX_HTTPS = "https://";
 	/** Test Address & Official Address */
-	public static final String SERVER_URL_TEST = "decorationagent.movit-tech.com:8080/broker";
+	public static final String SERVER_URL_TEST = "172.18.50.207:8080/server-core";
 	public static final String SERVER_URL_OFFICAL_PRE = "";
 	public static final String SERVER_URL_OFFICAL = "";
 	/** Default Server Address Prefix */
@@ -63,5 +65,9 @@ public interface INetHandler {
 
 	/** Upload Picture */
 	public void postForUploadPic(String relationId, String imagePath, Callback<VcObjectResult<String>> cb);
+
+    public void getForGetTestUser(String userId, Callback<VcObjectResult<VcTestUser>> cb);
+    public void postForUploadTestPic(String imagePath, Callback<VcObjectResult<String>> cb);
+    public void postForUploadTestMultiPic(String[] imagePath, Callback<VcListResult<String>> cb);
 
 }

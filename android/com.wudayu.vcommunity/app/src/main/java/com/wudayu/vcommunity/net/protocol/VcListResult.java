@@ -13,19 +13,19 @@ import java.util.ArrayList;
 public class VcListResult<T> extends BaseResult {
 
     @JsonProperty(value = "data")
-    private ArrayList<T> object;
+    private ArrayList<T> list;
 
-    public ArrayList<T> getObject() {
-        return object;
+    public ArrayList<T> getList() {
+        return list;
     }
 
-    public void setObject(ArrayList<T> object) {
-        this.object = object;
+    public void setList(ArrayList<T> list) {
+        this.list = list;
     }
 
     @Override
     public String toString() {
-        return "VcListResult{" + "object=" + object + '}';
+        return "VcListResult{" + "list=" + list + '}';
     }
 
 }
