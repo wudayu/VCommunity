@@ -20,8 +20,6 @@ import com.google.common.collect.Maps;
  * 2. List<String>, String内容为propertyPath + separator + message
  * 3. Map<propertyPath, message>
  * 
- * 详情见wiki: https://github.com/springside/springside4/wiki/HibernateValidator
- * 
  * @author calvin
  */
 public class BeanValidators {

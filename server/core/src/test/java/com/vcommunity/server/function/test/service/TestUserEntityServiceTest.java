@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author James Chow
  * @createdate 2015/4/24
- * @contact zhouxy.vortex@gamil.com
+ * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
 @DirtiesContext
@@ -31,6 +31,14 @@ public class TestUserEntityServiceTest extends SpringTransactionalTestCase {
         assertThat(list.size()).isEqualTo(1);
         list = testUserEntityService.findAllByMyBatis();
         assertThat(list.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void testUserEntityServiceFindOne() {
+        TestUserEntity testUserEntity = testUserEntityService.findUserByJpa("19506268550842b6b05bb5e3c0f618ce");
+        assertThat(testUserEntity.getUserName()).isEqualTo("James Chow");
+        testUserEntity = testUserEntityService.findUserByMyBatis("19506268550842b6b05bb5e3c0f618ce");
+        assertThat(testUserEntity.getUserName()).isEqualToIgnoringCase("James Chow");
     }
 
     public TestUserEntityService getTestUserEntityService() {

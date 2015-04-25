@@ -66,6 +66,15 @@
 		<url-pattern>/javasimon/*</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>DruidStatusView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatusView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+
 	<!-- Filter 定义 -->
 	<!-- Character Encoding filter -->
 	<filter>
