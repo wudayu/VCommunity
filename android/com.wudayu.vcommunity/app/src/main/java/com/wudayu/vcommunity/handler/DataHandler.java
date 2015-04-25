@@ -7,7 +7,7 @@ import android.app.Activity;
 
 import com.wudayu.vcommunity.db.IDbHandler;
 import com.wudayu.vcommunity.db.OrmliteDbHandler;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
@@ -41,7 +41,7 @@ public class DataHandler implements IDataHandler {
 	}
 
 	@Override
-	public void getForUserInfo(final String userId, final DataCallback<DafUser> dcb) {
+	public void getForUserInfo(final String userId, final DataCallback<VcUser> dcb) {
 		Callback<VcUserResult> cbRetrofit = new Callback<VcUserResult>() {
 			@Override
 			public void failure(RetrofitError error) {
@@ -52,12 +52,12 @@ public class DataHandler implements IDataHandler {
 			@Override
 			public void success(VcUserResult result, Response response) {
 				// 获取到数据，首先写入数据库
-				DafUser user = result.getObjValue();
+				VcUser user = result.getObjValue();
 				sDbHandler.setForUserInfo(user);
 				dcb.onSuccess(user);
 			}
 		};
-		sNetHandler.getForUserInfo(userId, cbRetrofit);
+//		sNetHandler.getForUserInfo(userId, cbRetrofit);
 	}
 
 }

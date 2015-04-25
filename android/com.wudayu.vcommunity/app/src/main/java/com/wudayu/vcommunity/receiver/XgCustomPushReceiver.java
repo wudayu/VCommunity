@@ -140,7 +140,6 @@ public class XgCustomPushReceiver extends XGPushBaseReceiver {
     @Override
     public void onRegisterResult(Context context, int errorCode,
                                  XGPushRegisterResult message) {
-        // TODO Auto-generated method stub
         if (context == null || message == null) {
             return;
         }
@@ -159,7 +158,6 @@ public class XgCustomPushReceiver extends XGPushBaseReceiver {
     // 消息透传
     @Override
     public void onTextMessage(Context context, XGPushTextMessage message) {
-        // TODO Auto-generated method stub
         String text = "收到消息:" + message.toString();
         // 获取自定义key-value
         String customContent = message.getCustomContent();

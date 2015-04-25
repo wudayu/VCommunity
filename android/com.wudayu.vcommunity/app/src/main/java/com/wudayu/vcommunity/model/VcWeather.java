@@ -14,7 +14,7 @@ import com.wudayu.vcommunity.constant.Constant;
  **/
 
 @JsonIgnoreProperties(ignoreUnknown = Constant.jsonIgnoreTooMuch)
-public class DafWeather {
+public class VcWeather {
 
 	private String cityId;
 	private String city;

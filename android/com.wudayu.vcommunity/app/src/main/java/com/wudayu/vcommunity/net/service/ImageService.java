@@ -8,7 +8,8 @@ import retrofit.http.Query;
 
 import com.wudayu.vcommunity.model.TypedImage;
 import com.wudayu.vcommunity.net.INetHandler;
-import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcListResult;
+import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 
 /**
  *
@@ -24,5 +25,14 @@ public interface ImageService {
 	/** Upload Picture */
 	@Multipart
 	@POST("/rest/broker/updateBrokerPic")
-	void uploadPic(@Query("id") String relationId, @Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, Callback<VcStringResult> cb);
+	void uploadPic(@Query("id") String relationId, @Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, Callback<VcObjectResult<String>> cb);
+
+    // TODO remove this
+    @Multipart
+    @POST("/api/upload/file")
+    void uploadTestPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, Callback<VcObjectResult<String>> cb);
+
+    @Multipart
+    @POST("/api/upload/file")
+    void uploadTestMultiPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage[] imageResources, Callback<VcListResult<String>> cb);
 }

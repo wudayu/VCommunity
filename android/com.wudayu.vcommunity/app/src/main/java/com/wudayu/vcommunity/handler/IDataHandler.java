@@ -1,6 +1,6 @@
 package com.wudayu.vcommunity.handler;
 
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 
 
 /**
@@ -16,7 +16,7 @@ import com.wudayu.vcommunity.model.DafUser;
 public interface IDataHandler {
 
 	/** Get User Info */
-	public void getForUserInfo(String userId, DataCallback<DafUser> dcb);
+	public void getForUserInfo(String userId, DataCallback<VcUser> dcb);
 
 	public interface DataCallback<T> {
 		public void onSuccess(T object);

@@ -1,7 +1,7 @@
 package com.wudayu.vcommunity.net.protocol;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 
 /**
  *
@@ -16,13 +16,13 @@ import com.wudayu.vcommunity.model.DafUser;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class VcUserResult extends BaseResult {
 
-	private DafUser objValue;
+	private VcUser objValue;
 
-	public DafUser getObjValue() {
+	public VcUser getObjValue() {
 		return objValue;
 	}
 
-	public void setObjValue(DafUser user) {
+	public void setObjValue(VcUser user) {
 		this.objValue = user;
 	}
 

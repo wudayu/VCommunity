@@ -16,22 +16,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseResult {
 
-	@JsonProperty(value = "result")
-	private boolean result;
+    public static final int MESSAGE_TYPE_NORMAL = 0x01;
+    public static final int MESSAGE_TYPE_NEED_CONFIRMED = 0x02;
 
-	@JsonProperty(value = "value")
-	private String value;
+	@JsonProperty(value = "success")
+	private boolean success;
 
-	public boolean getResultSuccess() {
-		return result;
-	}
+	@JsonProperty(value = "message")
+	private String message;
 
-	public String getResultMsg() {
-		return value;
-	}
+    @JsonProperty(value = "messageType")
+    private int messageType;
 
-	@Override
-	public String toString() {
-		return "result = " + result + ", value = " + value;
-	}
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(int messageType) {
+        this.messageType = messageType;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseResult{" +
+                "success=" + success +
+                ", message='" + message + '\'' +
+                ", messageType=" + messageType +
+                '}';
+    }
 }

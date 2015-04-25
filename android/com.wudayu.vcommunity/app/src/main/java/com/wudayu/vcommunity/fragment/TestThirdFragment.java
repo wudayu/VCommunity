@@ -23,10 +23,11 @@ import com.wudayu.vcommunity.constant.ReqCode;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.handler.IImageHandler;
 import com.wudayu.vcommunity.handler.UILImageHandler;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
-import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcListResult;
+import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.views.ProcessingDialog;
 
@@ -55,7 +56,7 @@ public class TestThirdFragment extends BaseFragment {
 	String uploadedUUid = null;
 	int currPicIndex = -1;
 
-	DafUser currUser = null;
+	VcUser currUser = null;
 
 	@Override
 	protected View initContainer(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,14 +88,15 @@ public class TestThirdFragment extends BaseFragment {
 
 	@Override
 	protected void afterAllSet() {
+        ///*
 		processingDialog = new ProcessingDialog(this.getActivity(), true, null);
 		processingDialog.show();
 
-		netHandler.getForUserInfo(CURR_USER_ID, new Callback<VcUserResult>() {
+		netHandler.getForUserInfo(CURR_USER_ID, new Callback<VcObjectResult<VcUser>>() {
 			@Override
-			public void success(VcUserResult result, Response response) {
+			public void success(VcObjectResult<VcUser> result, Response response) {
 				Utils.debug("result = " + result);
-				imageHandler.loadHeaderImage(result.getResultSuccess() ? result.getObjValue().getPhotosrc() : "", ivHeader);
+				imageHandler.loadHeaderImage(result.isSuccess() ? result.getObject().getPhotosrc() : "", ivHeader);
 				dismissProcessingDialog();
 			}
 			@Override
@@ -103,6 +105,7 @@ public class TestThirdFragment extends BaseFragment {
 				dismissProcessingDialog();
 			}
 		});
+		//*/
 	}
 
 	public void cutTheImage(Uri uri) {
@@ -149,18 +152,54 @@ public class TestThirdFragment extends BaseFragment {
 	void uploadPic(String filePath) {
 		processingDialog = new ProcessingDialog(this.getActivity(), "Uploading ...", false, null);
 		processingDialog.show();
-		netHandler.postForUploadPic(CURR_USER_ID, filePath, new Callback<VcStringResult>() {
+        /*
+		netHandler.postForUploadPic(CURR_USER_ID, filePath, new Callback<VcObjectResult<String>>() {
 			@Override
-			public void success(VcStringResult result, Response response) {
-				uploadedUUid = result.getStr();
+			public void success(VcObjectResult<String> result, Response response) {
+				uploadedUUid = result.getObject();
 				dismissProcessingDialog();
 			}
 			@Override
 			public void failure(RetrofitError error) {
 				RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                Utils.debug("error = " + error);
 				dismissProcessingDialog();
 			}
 		});
+		*/
+
+        netHandler.postForUploadTestPic(filePath, new Callback<VcObjectResult<String>>() {
+            @Override
+            public void success(VcObjectResult<String> result, Response response) {
+                uploadedUUid = result.getObject();
+                Utils.debug("uploadedUUid = " + uploadedUUid);
+                dismissProcessingDialog();
+            }
+            @Override
+            public void failure(RetrofitError error) {
+                RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                Utils.debug("error = " + error);
+                dismissProcessingDialog();
+            }
+        });
+
+        /*
+        netHandler.postForUploadTestMultiPic(new String[]{filePath, filePath}, new Callback<VcListResult<String>>() {
+            @Override
+            public void success(VcListResult<String> result, Response response) {
+                // uploadedUUid = result.getObject();
+                Utils.debug("uploadedUUids = " + result.getList());
+                dismissProcessingDialog();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                Utils.debug("error = " + error);
+                dismissProcessingDialog();
+            }
+        });
+        */
 	}
 
 }

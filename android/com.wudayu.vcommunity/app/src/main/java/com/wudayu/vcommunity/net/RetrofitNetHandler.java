@@ -5,13 +5,17 @@ import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import android.app.Activity;
+import android.provider.MediaStore;
 import android.util.Base64;
 
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.model.TypedImage;
+import com.wudayu.vcommunity.model.VcTestUser;
+import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.converter.JacksonConverter;
-import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcListResult;
+import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
 import com.wudayu.vcommunity.net.service.ImageService;
@@ -63,14 +67,34 @@ public class RetrofitNetHandler implements INetHandler {
 	}
 
 	@Override
-	public void getForUserInfo(String userId, Callback<VcUserResult> cb) {
+	public void getForUserInfo(String userId, Callback<VcObjectResult<VcUser>> cb) {
 		generalAdpater.create(UserService.class).getUser(userId, "0", cb);
 	}
 
 	@Override
-	public void postForUploadPic(String relationId, String imagePath, Callback<VcStringResult> cb) {
+	public void postForUploadPic(String relationId, String imagePath, Callback<VcObjectResult<String>> cb) {
 		generalAdpater.create(ImageService.class).uploadPic(relationId, new TypedImage(imagePath), cb);
 	}
+
+    @Override
+    public void getForGetTestUser(String userId, Callback<VcObjectResult<VcTestUser>> cb) {
+        generalAdpater.create(UserService.class).getTestUser(userId, cb);
+    }
+
+    @Override
+    public void postForUploadTestPic(String imagePath, Callback<VcObjectResult<String>> cb) {
+        generalAdpater.create(ImageService.class).uploadTestPic(new TypedImage(imagePath), cb);
+    }
+
+    @Override
+    public void postForUploadTestMultiPic(String[] imagePath, Callback<VcListResult<String>> cb) {
+        TypedImage[] typedImages = new TypedImage[imagePath.length];
+        for (int i = 0; i < typedImages.length; ++i) {
+            typedImages[i] = new TypedImage(imagePath[i]);
+        }
+
+        generalAdpater.create(ImageService.class).uploadTestMultiPic(typedImages, cb);
+    }
 
 
 	/**

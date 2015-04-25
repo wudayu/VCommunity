@@ -7,8 +7,16 @@ import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.handler.DataHandler;
 import com.wudayu.vcommunity.handler.IDataHandler;
 import com.wudayu.vcommunity.handler.IDataHandler.DataCallback;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcTestUser;
+import com.wudayu.vcommunity.model.VcUser;
+import com.wudayu.vcommunity.net.INetHandler;
+import com.wudayu.vcommunity.net.RetrofitNetHandler;
+import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.views.ProcessingDialog;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  *
@@ -24,6 +32,7 @@ public class TestActivity extends BaseActivity {
 
 	TextView tvTest = null;
 	IDataHandler dataHandler = null;
+    INetHandler netHandler = null;
 
 	@Override
 	protected void initContainer() {
@@ -33,6 +42,7 @@ public class TestActivity extends BaseActivity {
 	@Override
 	protected void initComponents() {
 		tvTest = (TextView) findViewById(R.id.tv_test);
+        netHandler = RetrofitNetHandler.getInstance();
 	}
 
 	@Override
@@ -48,10 +58,11 @@ public class TestActivity extends BaseActivity {
 	protected void afterAllSet() {
 		processingDialog = new ProcessingDialog(this);
 		processingDialog.show();
-		dataHandler.getForUserInfo("9f35c28e869f42aba79d6a64211ce1a2", new DataCallback<DafUser>() {
+        /*
+		dataHandler.getForUserInfo("9f35c28e869f42aba79d6a64211ce1a2", new DataCallback<VcUser>() {
 			@Override
-			public void onSuccess(DafUser object) {
-				Utils.debug("DafUser = " + object);
+			public void onSuccess(VcUser object) {
+				Utils.debug("VcUser = " + object);
 				dismissProcessingDialog();
 			}
 
@@ -61,6 +72,22 @@ public class TestActivity extends BaseActivity {
 				dismissProcessingDialog();
 			}
 		});
+		*/
+        netHandler.getForGetTestUser("19506268550842b6b05bb5e3c0f618ce", new Callback<VcObjectResult<VcTestUser>>() {
+            @Override
+            public void success(VcObjectResult<VcTestUser> vcTestUserVcObjectResult, Response response) {
+                Utils.debug("VcUser = " + vcTestUserVcObjectResult.getObject());
+                tvTest.setText(vcTestUserVcObjectResult.getObject().toString());
+                dismissProcessingDialog();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Utils.debug("errInfo = " + error);
+                tvTest.setText(error.toString());
+                dismissProcessingDialog();
+            }
+        });
 	}
 
 }

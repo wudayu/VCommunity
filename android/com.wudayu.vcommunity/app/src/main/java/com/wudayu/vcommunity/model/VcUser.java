@@ -11,13 +11,13 @@ import com.wudayu.vcommunity.constant.Constant;
  * @En_Name: David Wu
  * @E-mail: wudayu@gmail.com
  * @Created Time: Dec 8, 2014, 2:56:18 PM
- * @Description: DafUser是UserModel的Object Json对象
+ * @Description: VcUser是UserModel的Object Json对象
  * 
  **/
 
 @JsonIgnoreProperties(ignoreUnknown=Constant.jsonIgnoreUnknown)
-@DatabaseTable(tableName="DafUser")
-public class DafUser {
+@DatabaseTable(tableName="VcUser")
+public class VcUser {
 
 	public static final String USER_ID = "user_id";
 	public static final String USER_NAME = "user_name";
