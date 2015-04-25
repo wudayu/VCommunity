@@ -2,7 +2,7 @@ package com.wudayu.vcommunity.net.protocol;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wudayu.vcommunity.model.DafWeather;
+import com.wudayu.vcommunity.model.VcWeather;
 
 /**
  *
@@ -18,13 +18,13 @@ import com.wudayu.vcommunity.model.DafWeather;
 public class WeatherResult {
 
 	@JsonProperty(value = "weatherinfo")
-	private DafWeather weather;
+	private VcWeather weather;
 
-	public DafWeather getWeather() {
+	public VcWeather getWeather() {
 		return weather;
 	}
 
-	public void setWeather(DafWeather weather) {
+	public void setWeather(VcWeather weather) {
 		this.weather = weather;
 	}
 

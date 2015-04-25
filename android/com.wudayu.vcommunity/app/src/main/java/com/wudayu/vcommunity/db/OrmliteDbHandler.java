@@ -9,7 +9,7 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.generic.Utils;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 
 /**
  *
@@ -46,11 +46,11 @@ public class OrmliteDbHandler implements IDbHandler {
 	}
 
 	@Override
-	public void getForUserInfo(String userId, DataCallback<DafUser> dcb) {
+	public void getForUserInfo(String userId, DataCallback<VcUser> dcb) {
 		DatabaseHelper dbHelper = getHelper();
 		try {
-			RuntimeExceptionDao<DafUser, Integer> userDao = RuntimeExceptionDao.createDao(dbHelper.getConnectionSource(), DafUser.class);
-			List<DafUser> users = userDao.queryForEq(DafUser.USER_ID, userId);
+			RuntimeExceptionDao<VcUser, Integer> userDao = RuntimeExceptionDao.createDao(dbHelper.getConnectionSource(), VcUser.class);
+			List<VcUser> users = userDao.queryForEq(VcUser.USER_ID, userId);
 			if (users != null && users.size() > 0) {
 				dcb.onSuccess(users.get(0));
 			} else {
@@ -63,10 +63,10 @@ public class OrmliteDbHandler implements IDbHandler {
 	}
 
 	@Override
-	public void setForUserInfo(DafUser user) {
+	public void setForUserInfo(VcUser user) {
 		DatabaseHelper dbHelper = getHelper();
 		try {
-			RuntimeExceptionDao<DafUser, Integer> userDao = RuntimeExceptionDao.createDao(dbHelper.getConnectionSource(), DafUser.class);
+			RuntimeExceptionDao<VcUser, Integer> userDao = RuntimeExceptionDao.createDao(dbHelper.getConnectionSource(), VcUser.class);
 			if (user != null) {
 				// 有数据则添加或更新
 				userDao.createOrUpdate(user);

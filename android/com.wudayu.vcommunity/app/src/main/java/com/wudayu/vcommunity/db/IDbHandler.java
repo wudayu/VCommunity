@@ -1,7 +1,7 @@
 package com.wudayu.vcommunity.db;
 
 import com.wudayu.vcommunity.handler.IDataHandler;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 
 /**
  *
@@ -14,6 +14,6 @@ import com.wudayu.vcommunity.model.DafUser;
  **/
 public interface IDbHandler extends IDataHandler {
 
-	public void setForUserInfo(DafUser user);
+	public void setForUserInfo(VcUser user);
 
 }

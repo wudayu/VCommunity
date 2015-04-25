@@ -10,8 +10,9 @@ import android.util.Base64;
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.model.TypedImage;
+import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.converter.JacksonConverter;
-import com.wudayu.vcommunity.net.protocol.VcStringResult;
+import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
 import com.wudayu.vcommunity.net.service.ImageService;
@@ -63,12 +64,12 @@ public class RetrofitNetHandler implements INetHandler {
 	}
 
 	@Override
-	public void getForUserInfo(String userId, Callback<VcUserResult> cb) {
+	public void getForUserInfo(String userId, Callback<VcObjectResult<VcUser>> cb) {
 		generalAdpater.create(UserService.class).getUser(userId, "0", cb);
 	}
 
 	@Override
-	public void postForUploadPic(String relationId, String imagePath, Callback<VcStringResult> cb) {
+	public void postForUploadPic(String relationId, String imagePath, Callback<VcObjectResult<String>> cb) {
 		generalAdpater.create(ImageService.class).uploadPic(relationId, new TypedImage(imagePath), cb);
 	}
 

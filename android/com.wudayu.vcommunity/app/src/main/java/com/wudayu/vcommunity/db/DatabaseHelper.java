@@ -10,7 +10,7 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.wudayu.vcommunity.R;
-import com.wudayu.vcommunity.model.DafUser;
+import com.wudayu.vcommunity.model.VcUser;
 
 /**
  *
@@ -36,7 +36,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		try {
 			Log.i(DatabaseHelper.class.getName(),
 					"--------begin creating database tables--------");
-			TableUtils.createTable(connectionSource, DafUser.class);
+			TableUtils.createTable(connectionSource, VcUser.class);
 			Log.i(DatabaseHelper.class.getName(),
 					"--------end creating database tables--------");
 		} catch (SQLException e) {
@@ -64,7 +64,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	 
 	private void upgrade_1_2() {
 		try {
-			Dao<DuduContact, Integer> dao = getDao(DafWeather.class);
+			Dao<DuduContact, Integer> dao = getDao(VcWeather.class);
 			dao.executeRaw("ALTER TABLE `DuduContact` ADD COLUMN remark VARCHAR(200);");
 			dao.executeRaw("UPDATE `DuduContact` SET  remark = dudu_nickname;");
 			// 触发联系人操作
