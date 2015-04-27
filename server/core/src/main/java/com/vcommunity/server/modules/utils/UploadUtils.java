@@ -31,9 +31,10 @@ public class UploadUtils {
         return UUID.randomUUID().toString();
     }
 
-    public static String uploadFile(HttpServletRequest request, HttpServletResponse response) throws FileUploadException, IOException {
+    public static List<String> uploadFile(HttpServletRequest request, HttpServletResponse response) throws FileUploadException, IOException {
         boolean isMultipartContent = ServletFileUpload.isMultipartContent(request);
         String fileId = null;
+        List<String> fileIds = new ArrayList<>();
         if (isMultipartContent) {
             FileItemFactory factory = new DiskFileItemFactory();
             ServletFileUpload upload = new ServletFileUpload(factory);
@@ -74,13 +75,14 @@ public class UploadUtils {
                 out.close();
 
                 fileId = fileName;
+                fileIds.add(fileId);
 
                 break;
 
             }
         }
 
-        return fileId;
+        return fileIds;
     }
 
     public static String uploadFile(InputStream inputStream) throws FileUploadException, IOException {

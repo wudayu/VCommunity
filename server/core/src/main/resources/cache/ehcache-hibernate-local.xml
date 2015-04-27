@@ -9,6 +9,6 @@
 		overflowToDisk="true" maxEntriesLocalDisk="100000" />
 
 	<!-- Special objects setting. -->
-	<cache name="com.vcommunity.server.entity.TestUserEntity" maxEntriesLocalHeap="1000" eternal="true"
+	<cache name="com.vcommunity.server.entity.Attachment" maxEntriesLocalHeap="1000" eternal="true"
 		overflowToDisk="true" maxEntriesLocalDisk="10000" />
 </ehcache>
