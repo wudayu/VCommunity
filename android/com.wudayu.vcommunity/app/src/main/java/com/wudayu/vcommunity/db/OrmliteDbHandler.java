@@ -25,15 +25,22 @@ public class OrmliteDbHandler implements IDbHandler {
 	private static Context sContext = null;
 
 	/** Generate the Singleton */
-	private final static IDbHandler instance = new OrmliteDbHandler();
+	private static volatile IDbHandler instance;
 
 	private OrmliteDbHandler() {};
 
-	public static IDbHandler getInstance(Context context) {
-		sContext = context;
+    public static IDbHandler getInstance(Context context) {
+        sContext = context;
 
-		return instance;
-	}
+        if (instance == null) {
+            synchronized (OrmliteDbHandler.class) {
+                if (instance == null) {
+                    instance = new OrmliteDbHandler();
+                }
+            }
+        }
+        return instance;
+    }
 
 	DatabaseHelper mDatabaseHelper = null;
 

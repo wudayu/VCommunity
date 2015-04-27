@@ -25,6 +25,7 @@ import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.handler.IImageHandler;
 import com.wudayu.vcommunity.handler.UILImageHandler;
 import com.wudayu.vcommunity.listener.BannerViewOnItemClickListener;
+import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.views.BannerView;
 import com.wudayu.vcommunity.views.CountDownView;
 
@@ -111,6 +112,7 @@ public class TestFirstFragment extends BaseFragment {
 
 	private void testData() {
 		// HomePageBanner
+        /*
 		List<View> views = new ArrayList<View>();
 		ImageView view1 = (ImageView) LayoutInflater.from(this.getActivity()).inflate(R.layout.item_img_banner_view, null);
 		imageHandler.loadImage("http://pic1.win4000.com/wallpaper/d/53e85d4307c60.jpg", view1);
@@ -138,6 +140,7 @@ public class TestFirstFragment extends BaseFragment {
 		views.add(view6);
 		bvBanner.setViews(views);
 		bvBanner.setRolling(3000);
+		*/
 
 		// CountDownView
 		tvCountDown.setCountDownAndStart(5000, 10);
@@ -152,7 +155,7 @@ public class TestFirstFragment extends BaseFragment {
 		});
 
 		// ImageView
-		imageHandler.loadImage("http://172.18.50.207:8080/server-core/api/download/file/0d2452b5-825e-4a48-9b9a-c72e5c295e9c.jpg", ivTest);
+		imageHandler.loadImage("http://" + INetHandler.SERVER_URL_TEST + "/api/download/file/0d2452b5-825e-4a48-9b9a-c72e5c295e9c.jpg", ivTest);
 	}
 
 }

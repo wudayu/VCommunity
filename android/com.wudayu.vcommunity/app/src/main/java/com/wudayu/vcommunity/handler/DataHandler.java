@@ -28,17 +28,24 @@ public class DataHandler implements IDataHandler {
 	private static IDbHandler sDbHandler = null;
 
 	/** Generate the Singleton */
-	private static final IDataHandler instance = new DataHandler();
+	private static volatile IDataHandler instance;
 
 	private DataHandler() {};
 
-	public static IDataHandler getInstance(Activity context) {
-		sContext = context;
-		sNetHandler = RetrofitNetHandler.getInstance();
-		sDbHandler = OrmliteDbHandler.getInstance(context);
-		
-		return instance;
-	}
+    public static IDataHandler getInstance(Activity context) {
+        sContext = context;
+        sNetHandler = RetrofitNetHandler.getInstance();
+        sDbHandler = OrmliteDbHandler.getInstance(context);
+
+        if (instance == null) {
+            synchronized (DataHandler.class) {
+                if (instance == null) {
+                    instance = new DataHandler();
+                }
+            }
+        }
+        return instance;
+    }
 
 	@Override
 	public void getForUserInfo(final String userId, final DataCallback<VcUser> dcb) {
@@ -57,6 +64,7 @@ public class DataHandler implements IDataHandler {
 				dcb.onSuccess(user);
 			}
 		};
+        // TODO edit this function
 //		sNetHandler.getForUserInfo(userId, cbRetrofit);
 	}
 

@@ -20,17 +20,24 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 public class WechatHandler implements IWechatHandler {
 
 	/** Generate Singleton */
-	private static final WechatHandler instance = new WechatHandler();
+	private static volatile WechatHandler instance;
 	private static IWXAPI api = null;
 
 	private WechatHandler() {}
 
-	public static WechatHandler getInstance(Context context) {
-		api = WXAPIFactory.createWXAPI(context, Constant.WX_APP_ID);
-		api.registerApp(Constant.WX_APP_ID);
+    public static IWechatHandler getInstance(Context context) {
+        api = WXAPIFactory.createWXAPI(context, Constant.WX_APP_ID);
+        api.registerApp(Constant.WX_APP_ID);
 
-		return instance;
-	}
+        if (instance == null) {
+            synchronized (WechatHandler.class) {
+                if (instance == null) {
+                    instance = new WechatHandler();
+                }
+            }
+        }
+        return instance;
+    }
 
 	/** 链接并启动微信支付 耗时操作 */
 	@Override

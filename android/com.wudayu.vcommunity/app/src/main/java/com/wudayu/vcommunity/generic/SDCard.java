@@ -18,13 +18,21 @@ import com.wudayu.vcommunity.generic.interfaces.ISDCard;
 public class SDCard implements ISDCard {
 
 	/** Generate Singleton */
-	private static final SDCard instance = new SDCard();
+	private static volatile SDCard instance;
 
 	private SDCard() {}
 
-	public static ISDCard getInstance() {
-		return instance;
-	}
+    public static ISDCard getInstance()
+    {
+        if (instance == null) {
+            synchronized (SDCard.class) {
+                if (instance == null) {
+                    instance = new SDCard();
+                }
+            }
+        }
+        return instance;
+    }
 
 	/**
 	 * SD卡是否可用

@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.constant.WeatherCityCode;
 import com.wudayu.vcommunity.generic.Utils;
+import com.wudayu.vcommunity.handler.IImageHandler;
+import com.wudayu.vcommunity.handler.UILImageHandler;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
@@ -35,6 +37,7 @@ import com.wudayu.vcommunity.views.ProcessingDialog;
 public class TestSecondFragment extends BaseFragment {
 
 	INetHandler netHandler = null;
+    IImageHandler imageHandler = null;
 	TextView tvWeather = null;
 
 	@Override
@@ -47,6 +50,7 @@ public class TestSecondFragment extends BaseFragment {
 		tvWeather = (TextView) fragView.findViewById(R.id.tv_weather);
 
 		netHandler = RetrofitNetHandler.getInstance();
+        imageHandler = UILImageHandler.getInstance(this.getActivity());
 	}
 
 	@Override
@@ -54,6 +58,7 @@ public class TestSecondFragment extends BaseFragment {
 		tvWeather.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
+                /*
 				try {
 					Intent gaodeMapIntent = new Intent("android.intent.action.VIEW", android.net.Uri.parse("androidamap://showTraffic?sourceApplication=softname&poiid=BGVIS1&lat="+"39.98871"+"&lon="+"116.43234"+"&level=10&dev=0"));
 					gaodeMapIntent.setPackage("com.autonavi.minimap");
@@ -69,6 +74,8 @@ public class TestSecondFragment extends BaseFragment {
 				} catch (URISyntaxException e) {
 					Utils.toastMessage(TestSecondFragment.this.getActivity(), "");
 				}
+				*/
+                imageHandler.cleanImageCache();
 			}
 		});
 	}

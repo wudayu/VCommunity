@@ -73,17 +73,25 @@ public class UILImageHandler implements IImageHandler {
 	String mImageCacheDir = null;
 
 	/** Generate Singleton */
-	private static final IImageHandler instance = new UILImageHandler();
+	private static volatile IImageHandler instance;
 
 	private UILImageHandler() {}
 
-	public static IImageHandler getInstance(Context context) {
-		sContext = context;
-		sSDCard = SDCard.getInstance();
-		sFileHandler = FileHandler.getInstance(context);
+    public static IImageHandler getInstance(Context context) {
+        sContext = context;
+        sSDCard = SDCard.getInstance();
+        sFileHandler = FileHandler.getInstance(context);
 
-		return instance;
-	}
+        if (instance == null) {
+            synchronized (UILImageHandler.class) {
+                if (instance == null) {
+                    instance = new UILImageHandler();
+                }
+            }
+        }
+
+        return instance;
+    }
 
 	@Override
 	public void initImageLoader() {

@@ -25,7 +25,7 @@ public interface INetHandler {
 	public static final String PREFIX_HTTP = "http://";
 	public static final String PREFIX_HTTPS = "https://";
 	/** Test Address & Official Address */
-	public static final String SERVER_URL_TEST = "172.18.50.207:8080/server-core";
+	public static final String SERVER_URL_TEST = "172.18.50.205:8080/server-core";
 	public static final String SERVER_URL_OFFICAL_PRE = "";
 	public static final String SERVER_URL_OFFICAL = "";
 	/** Default Server Address Prefix */

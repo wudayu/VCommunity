@@ -40,14 +40,22 @@ public class FileHandler implements IFileHandler {
 	private static Context sContext = null;
 
 	/** Generate Singleton */
-	private static final IFileHandler instance = new FileHandler();
+	private static volatile IFileHandler instance;
 
 	private FileHandler() {}
 
-	public static IFileHandler getInstance(Context context) {
-		sContext = context;
-		return instance;
-	}
+    public static IFileHandler getInstance(Context context) {
+        sContext = context;
+
+        if (instance == null) {
+            synchronized (FileHandler.class) {
+                if (instance == null) {
+                    instance = new FileHandler();
+                }
+            }
+        }
+        return instance;
+    }
 
 	public String getCacheDirByType(CacheDir dir) {
 		String path = this.getCacheDir() + dir;
