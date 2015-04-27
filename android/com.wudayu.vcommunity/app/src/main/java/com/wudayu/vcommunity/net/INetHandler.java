@@ -26,13 +26,13 @@ public interface INetHandler {
 	public static final String PREFIX_HTTPS = "https://";
 	/** Test Address & Official Address */
 	public static final String SERVER_URL_TEST = "172.18.50.205:8080/server-core";
-	public static final String SERVER_URL_OFFICAL_PRE = "";
+	public static final String SERVER_URL_OFFICAL_PRE = "serveu.xwzf.gov.cn/server-core";
 	public static final String SERVER_URL_OFFICAL = "";
 	/** Default Server Address Prefix */
 	public static final String PREFIX_DEFAULT = PREFIX_HTTP;
 	/** Server URL Names TODO Switch to the last one when publish */
-	public static final String SERVER_URL_NAME = SERVER_URL_TEST;
-//	public static final String SERVER_URL_NAME = SERVER_URL_OFFICAL_PRE;
+//	public static final String SERVER_URL_NAME = SERVER_URL_TEST;
+	public static final String SERVER_URL_NAME = SERVER_URL_OFFICAL_PRE;
 //	public static final String SERVER_URL_NAME = SERVER_URL_OFFICAL;
 
 	/** Used by the Class which implements INetHandler */

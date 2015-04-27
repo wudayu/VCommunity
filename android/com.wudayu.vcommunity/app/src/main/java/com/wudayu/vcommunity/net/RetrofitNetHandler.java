@@ -93,6 +93,8 @@ public class RetrofitNetHandler implements INetHandler {
             typedImages[i] = new TypedImage(imagePath[i]);
         }
 
+//        generalAdpater.create(ImageService.class).uploadTestMultiPic(new TypedImage(imagePath[0]), new TypedImage(imagePath[1]), cb);
+
         generalAdpater.create(ImageService.class).uploadTestMultiPic(typedImages, cb);
     }
 

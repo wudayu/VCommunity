@@ -155,7 +155,7 @@ public class TestFirstFragment extends BaseFragment {
 		});
 
 		// ImageView
-		imageHandler.loadImage("http://" + INetHandler.SERVER_URL_TEST + "/api/download/file/0d2452b5-825e-4a48-9b9a-c72e5c295e9c.jpg", ivTest);
+		imageHandler.loadImage("http://" + INetHandler.SERVER_URL_TEST + "/api/download/file/eb5a14b7-b7a0-45c7-8bfc-32fdcfd84659", ivTest);
 	}
 
 }

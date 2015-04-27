@@ -34,5 +34,6 @@ public interface ImageService {
 
     @Multipart
     @POST("/api/upload/file")
+//    void uploadTestMultiPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, @Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource2, Callback<VcListResult<String>> cb);
     void uploadTestMultiPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage[] imageResources, Callback<VcListResult<String>> cb);
 }
