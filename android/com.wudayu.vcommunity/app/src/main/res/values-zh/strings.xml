@@ -1,6 +1,6 @@
 <resources>
     <!-- 常用 -->
-    <string name="app_name">Wudayu Framework</string>
+    <string name="app_name">威社</string>
     <!-- 系统 -->
     <string name="str_double_close">再次点击后退键退出</string>
     <!-- 工具 -->
