@@ -1,11 +1,18 @@
 package com.vcommunity.server.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
+ * 小区表
+ *
  * @author James
  * @version 1.0
  * @date 4/27/15 9:46 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
+//@Entity
+//@Table(name = "t_community")
 public class CommunityEntity extends BaseEntity {
 
     /** 小区名 */

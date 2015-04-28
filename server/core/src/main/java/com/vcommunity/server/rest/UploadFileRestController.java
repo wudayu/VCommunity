@@ -14,7 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -97,13 +99,13 @@ public class UploadFileRestController {
             content = UploadUtils.getFileContent(filePath);
 
             HttpHeaders httpHeaders = new HttpHeaders();
-            String fileName = "file.jpg";
             httpHeaders.set("Content-Type", attachment.getMimeType());
-            httpHeaders.setContentDispositionFormData("attachment", new String(fileName.getBytes(), "iso8859-1"));
+            httpHeaders.setContentDispositionFormData("attachment", new String(attachment.getFileName().getBytes(), "iso8859-1"));
             entity = new ResponseEntity<>(content, httpHeaders, HttpStatus.OK);
 
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error(e.getMessage());
         }
 
         return entity;

@@ -2,12 +2,12 @@ package com.vcommunity.server.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
+ * JPA基础实体类
+ *
  * @author James Chow
  * @createdate 2015/4/24
  * @contact zhouxy.vortex@gmail.com
@@ -20,8 +20,12 @@ public abstract class BaseEntity {
     @GenericGenerator(name = "uuidGenerator", strategy = "uuid")
     private String uuid;
 
+    /** 这里的创建时间要精确到时分秒，为日期时间戳 */
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
 
+    /** 修改时间也是一样的 */
+    @Temporal(TemporalType.TIMESTAMP)
     private Date modifyDate;
 
     public String getUuid() {

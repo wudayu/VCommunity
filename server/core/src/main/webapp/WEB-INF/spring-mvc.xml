@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<!-- 自动扫描且只扫描@Controller -->
-	<context:component-scan base-package="com.vcommunity.server.web,com.vcommunity.server.rest" use-default-filters="false">
+	<context:component-scan base-package="com.vcommunity.server,com.vcommunity.server.rest" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
@@ -60,7 +60,7 @@
 		<property name="exceptionMappings">  
 			<props>
 				<!--<prop key="org.apache.shiro.authz.UnauthorizedException">error/403</prop>-->
-				<prop key="java.lang.Throwable">error/500</prop>
+				<!--<prop key="java.lang.Throwable">error/500</prop>-->
             </props>  
 		</property>  
     </bean> 
