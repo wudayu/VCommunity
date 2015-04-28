@@ -1,13 +1,19 @@
 package com.vcommunity.server.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
+ * 物业表
+ *
  * @author James
  * @version 1.0
  * @date 4/27/15 9:44 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
+//@Entity
+//@Table(name = "t_property")
 public class PropertyEntity extends BaseEntity {
 
     /** 姓名 */

@@ -42,7 +42,7 @@ public class Reflections {
 		try {
 			result = field.get(obj);
 		} catch (IllegalAccessException e) {
-			logger.error("此字段没有访问权限{}", e.getMessage());
+			logger.error("no permission to access this field{}", e.getMessage());
 		}
 		return result;
 	}
@@ -57,7 +57,7 @@ public class Reflections {
 		try {
 			field.set(obj, value);
 		} catch (IllegalAccessException e) {
-			logger.error("无访问权限:{}", e.getMessage());
+			logger.error("no permission to access this field:{}", e.getMessage());
 		}
 	}
 
@@ -97,7 +97,6 @@ public class Reflections {
 				makeAccessible(field);
 				return field;
 			} catch (NoSuchFieldException e) {// NOSONAR
-				// Field涓嶅湪褰撳墠绫诲畾涔?,缁х画鍚戜笂杞瀷
 			}
 		}
 		return null;

@@ -1,42 +1,62 @@
 package com.vcommunity.server.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
+ * 商户用户表
+ *
  * @author James
  * @version 1.0
  * @date 4/27/15 9:56 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
+//@Entity
+//@Table(name = "t_merchant")
 public class MerchantEntity extends BaseEntity {
 
+    /** 商户的名称 */
     private String name;
 
+    /** 登录系统的密码 */
     private String password;
 
+    /** 未经加密的原始密码，不会序列化到数据库当中 */
     @Transient
     private String plainPassword;
 
+    /** 联系电话 */
     private String contactMobile;
 
+    /** 商户的经理姓名 */
     private String manager;
 
+    /** 管理者的联系电话 */
     private String managerMobile;
 
+    /** 商户经营的方向类型 */
     private String sellType;
 
+    /** 商户的性质，1. 民营 2. 国营 等 */
     private String companyType;
 
+    /** 经营的规模大小 */
     private String scaleOfOperation;
 
+    /** 营业执照的编号 */
     private String selNo;
 
+    /** 法人代表 */
     private String owner;
 
+    /** 地址 */
     private String address;
 
+    /** 经度 */
     private String longitude;
 
+    /** 纬度 */
     private String latitude;
 
     public String getName() {
