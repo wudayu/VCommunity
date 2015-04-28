@@ -28,7 +28,6 @@ import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
 import com.wudayu.vcommunity.net.protocol.VcListResult;
 import com.wudayu.vcommunity.net.protocol.VcObjectResult;
-import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.views.ProcessingDialog;
 
 /**
@@ -168,13 +167,15 @@ public class TestThirdFragment extends BaseFragment {
 		});
 		*/
         /*
-        netHandler.postForUploadTestPic(filePath, new Callback<VcObjectResult<String>>() {
+        netHandler.postForUploadTestPic(filePath, new Callback<VcListResult<String>>() {
             @Override
-            public void success(VcObjectResult<String> result, Response response) {
-                uploadedUUid = result.getObject();
-                Utils.debug("uploadedUUid = " + uploadedUUid);
+            public void success(VcListResult<String> result, Response response) {
+                // uploadedUUid = result.getObject();
+                Utils.debug("uploadedUUids = " + result.getList());
+                Utils.debug("UUids.size = " + result.getList().size());
                 dismissProcessingDialog();
             }
+
             @Override
             public void failure(RetrofitError error) {
                 RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
@@ -183,7 +184,7 @@ public class TestThirdFragment extends BaseFragment {
             }
         });
         */
-        netHandler.postForUploadTestMultiPic(new String[]{filePath, filePath}, new Callback<VcListResult<String>>() {
+        netHandler.postForUploadMultiplePic(new String[]{filePath, filePath}, new Callback<VcListResult<String>>() {
             @Override
             public void success(VcListResult<String> result, Response response) {
                 // uploadedUUid = result.getObject();

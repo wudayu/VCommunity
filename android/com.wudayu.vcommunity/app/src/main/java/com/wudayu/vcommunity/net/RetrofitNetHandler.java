@@ -4,8 +4,9 @@ import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
+import retrofit.mime.MultipartTypedOutput;
+
 import android.app.Activity;
-import android.provider.MediaStore;
 import android.util.Base64;
 
 import com.wudayu.vcommunity.R;
@@ -16,7 +17,6 @@ import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.converter.JacksonConverter;
 import com.wudayu.vcommunity.net.protocol.VcListResult;
 import com.wudayu.vcommunity.net.protocol.VcObjectResult;
-import com.wudayu.vcommunity.net.protocol.VcUserResult;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;
 import com.wudayu.vcommunity.net.service.ImageService;
 import com.wudayu.vcommunity.net.service.UserService;
@@ -35,14 +35,14 @@ import com.wudayu.vcommunity.net.service.WeatherService;
 public class RetrofitNetHandler implements INetHandler {
 
 	RestAdapter weatherAdapter = null;
-	RestAdapter generalAdpater = null;
+	RestAdapter generalAdapter = null;
 
 	/** Generate the Singleton */
 	private final static RetrofitNetHandler mNetHandler = new RetrofitNetHandler();
 
 	private RetrofitNetHandler() {
 		weatherAdapter = new RestAdapter.Builder().setEndpoint(SERVER_URL_WEATHER).setConverter(new JacksonConverter(JacksonConverter.TEXT_HTML_VALUE)).build();
-		generalAdpater = new RestAdapter.Builder().setEndpoint(SERVER_URL_FOR_RETROFIT).setConverter(new JacksonConverter()).build();
+		generalAdapter = new RestAdapter.Builder().setEndpoint(SERVER_URL_FOR_RETROFIT).setConverter(new JacksonConverter()).build();
 	};
 
 	public static INetHandler getInstance() {
@@ -68,34 +68,46 @@ public class RetrofitNetHandler implements INetHandler {
 
 	@Override
 	public void getForUserInfo(String userId, Callback<VcObjectResult<VcUser>> cb) {
-		generalAdpater.create(UserService.class).getUser(userId, "0", cb);
-	}
-
-	@Override
-	public void postForUploadPic(String relationId, String imagePath, Callback<VcObjectResult<String>> cb) {
-		generalAdpater.create(ImageService.class).uploadPic(relationId, new TypedImage(imagePath), cb);
+		generalAdapter.create(UserService.class).getUser(userId, "0", cb);
 	}
 
     @Override
     public void getForGetTestUser(String userId, Callback<VcObjectResult<VcTestUser>> cb) {
-        generalAdpater.create(UserService.class).getTestUser(userId, cb);
+        generalAdapter.create(UserService.class).getTestUser(userId, cb);
     }
 
     @Override
-    public void postForUploadTestPic(String imagePath, Callback<VcObjectResult<String>> cb) {
-        generalAdpater.create(ImageService.class).uploadTestPic(new TypedImage(imagePath), cb);
+    public void postForUploadSinglePic(String imagePath, Callback<VcListResult<String>> cb) {
+        postForUploadMultiplePic(new String[]{imagePath}, cb);
     }
 
+    /**
+     * postForUploadMultiplePic
+     * It can use Map method and MultipartTypedOutput method
+     * the different between these two methods is that
+     * in Map method, the FILE_KEY of each file must be different
+     *
+     * @param imagePaths
+     * @param cb
+     */
     @Override
-    public void postForUploadTestMultiPic(String[] imagePath, Callback<VcListResult<String>> cb) {
-        TypedImage[] typedImages = new TypedImage[imagePath.length];
-        for (int i = 0; i < typedImages.length; ++i) {
-            typedImages[i] = new TypedImage(imagePath[i]);
+    public void postForUploadMultiplePic(String[] imagePaths, Callback<VcListResult<String>> cb) {
+        /* Map method
+        Map<String, TypedImage> typedImages = new HashMap<String, TypedImage>();
+        for (String imagePath : imagePaths) {
+            typedImages.put(INetHandler.UPLOAD_PIC_FILE_KEY + System.currentTimeMillis(), new TypedImage(imagePath));
         }
 
-//        generalAdpater.create(ImageService.class).uploadTestMultiPic(new TypedImage(imagePath[0]), new TypedImage(imagePath[1]), cb);
+        // new TypedImage(imagePath) ==also=can=be==> new TypedFile("image/jpg", new File(imagePath)) and the "image/jpg"can also be "audio/mp3" and so on
+        */
+        /* MultipartTypedOutput method */
+        MultipartTypedOutput typedImages = new MultipartTypedOutput();
+        for (String imagePath : imagePaths) {
+            typedImages.addPart(INetHandler.UPLOAD_PIC_FILE_KEY, new TypedImage(imagePath));
+        }
+        /**/
 
-        generalAdpater.create(ImageService.class).uploadTestMultiPic(typedImages, cb);
+        generalAdapter.create(ImageService.class).uploadMultiplePic(typedImages, cb);
     }
 
 

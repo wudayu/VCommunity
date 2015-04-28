@@ -1,15 +1,21 @@
 package com.wudayu.vcommunity.net.service;
 
 import retrofit.Callback;
+import retrofit.http.Body;
 import retrofit.http.Multipart;
 import retrofit.http.POST;
 import retrofit.http.Part;
+import retrofit.http.PartMap;
 import retrofit.http.Query;
+import retrofit.mime.MultipartTypedOutput;
+import retrofit.mime.TypedFile;
 
 import com.wudayu.vcommunity.model.TypedImage;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.protocol.VcListResult;
 import com.wudayu.vcommunity.net.protocol.VcObjectResult;
+
+import java.util.Map;
 
 /**
  *
@@ -22,18 +28,17 @@ import com.wudayu.vcommunity.net.protocol.VcObjectResult;
  **/
 
 public interface ImageService {
-	/** Upload Picture */
-	@Multipart
-	@POST("/rest/broker/updateBrokerPic")
-	void uploadPic(@Query("id") String relationId, @Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, Callback<VcObjectResult<String>> cb);
 
-    // TODO remove this
+	/** Upload pictures or other files */
+    /* Map method
     @Multipart
     @POST("/api/upload/file")
-    void uploadTestPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, Callback<VcObjectResult<String>> cb);
+    void uploadMultiplePic(@PartMap Map<String, TypedImage> imageResources, Callback<VcListResult<String>> cb);
+    */
 
-    @Multipart
+    /* MultipartTypedOutput method */
     @POST("/api/upload/file")
-//    void uploadTestMultiPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource, @Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage imageResource2, Callback<VcListResult<String>> cb);
-    void uploadTestMultiPic(@Part(INetHandler.UPLOAD_PIC_FILE_KEY) TypedImage[] imageResources, Callback<VcListResult<String>> cb);
+    void uploadMultiplePic(@Body MultipartTypedOutput imageResources, Callback<VcListResult<String>> cb);
+    /**/
+
 }

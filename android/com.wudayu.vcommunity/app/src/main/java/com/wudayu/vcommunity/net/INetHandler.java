@@ -25,7 +25,7 @@ public interface INetHandler {
 	public static final String PREFIX_HTTP = "http://";
 	public static final String PREFIX_HTTPS = "https://";
 	/** Test Address & Official Address */
-	public static final String SERVER_URL_TEST = "172.18.50.205:8080/server-core";
+	public static final String SERVER_URL_TEST = "172.18.50.206:8080/server-core";
 	public static final String SERVER_URL_OFFICAL_PRE = "serveu.xwzf.gov.cn/server-core";
 	public static final String SERVER_URL_OFFICAL = "";
 	/** Default Server Address Prefix */
@@ -62,12 +62,10 @@ public interface INetHandler {
 
 	/** Get User Info */
 	public void getForUserInfo(String userId, Callback<VcObjectResult<VcUser>> cb);
+    public void getForGetTestUser(String userId, Callback<VcObjectResult<VcTestUser>> cb);
 
 	/** Upload Picture */
-	public void postForUploadPic(String relationId, String imagePath, Callback<VcObjectResult<String>> cb);
-
-    public void getForGetTestUser(String userId, Callback<VcObjectResult<VcTestUser>> cb);
-    public void postForUploadTestPic(String imagePath, Callback<VcObjectResult<String>> cb);
-    public void postForUploadTestMultiPic(String[] imagePath, Callback<VcListResult<String>> cb);
+    public void postForUploadSinglePic(String imagePath, Callback<VcListResult<String>> cb);
+    public void postForUploadMultiplePic(String[] imagePaths, Callback<VcListResult<String>> cb);
 
 }
