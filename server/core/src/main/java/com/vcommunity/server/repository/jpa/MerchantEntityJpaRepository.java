@@ -12,5 +12,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
-public interface MerchantEntityRepository extends PagingAndSortingRepository<MerchantEntity, String>, JpaSpecificationExecutor<MerchantEntity> {
+public interface MerchantEntityJpaRepository extends PagingAndSortingRepository<MerchantEntity, String>, JpaSpecificationExecutor<MerchantEntity> {
 }

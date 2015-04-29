@@ -47,6 +47,9 @@ public class OwnerEntity extends BaseEntity {
     /** 性别 */
     private String gender;
 
+    /** 密码加盐，盐值 */
+    private String salt;
+
     @ManyToOne
     @JoinColumn(name = "community_uuid")
     private CommunityEntity community;
@@ -132,5 +135,21 @@ public class OwnerEntity extends BaseEntity {
 
     public void setCommunity(CommunityEntity community) {
         this.community = community;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public List<CompaintEntity> getCompaints() {
+        return compaints;
+    }
+
+    public void setCompaints(List<CompaintEntity> compaints) {
+        this.compaints = compaints;
     }
 }

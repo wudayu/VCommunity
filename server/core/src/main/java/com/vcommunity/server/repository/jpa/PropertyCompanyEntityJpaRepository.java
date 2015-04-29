@@ -12,5 +12,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
-public interface PropertyCompanyEntityRepository extends PagingAndSortingRepository<PropertyCompanyEntity, String>, JpaSpecificationExecutor<PropertyCompanyEntity> {
+public interface PropertyCompanyEntityJpaRepository extends PagingAndSortingRepository<PropertyCompanyEntity, String>, JpaSpecificationExecutor<PropertyCompanyEntity> {
 }

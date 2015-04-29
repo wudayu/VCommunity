@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
-public interface CompaintPicEntityRepository extends JpaSpecificationExecutor<CompaintPicEntity> {
+public interface CompaintPicEntityJpaRepository extends JpaSpecificationExecutor<CompaintPicEntity> {
 }
