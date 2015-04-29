@@ -27,6 +27,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -130,7 +132,7 @@ public class UILImageHandler implements IImageHandler {
 		        // .postProcessor(...)
 		        // .extraForDownloader(...)
 		        .considerExifParams(true) // default
-		        .imageScaleType(ImageScaleType.EXACTLY) // default IN_SAMPLE_POWER_OF_2
+		        .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2) // default IN_SAMPLE_POWER_OF_2
 		        .bitmapConfig(Bitmap.Config.RGB_565) // default 8888
 		        // .decodingOptions(...)
 		        .displayer(new FadeInBitmapDisplayer(500)) // default SimpleBitmapDisplayer
@@ -143,7 +145,7 @@ public class UILImageHandler implements IImageHandler {
 //		        .showImageOnFail(R.drawable.default_houseimg)
 		        .cacheOnDisk(true)
 		        .considerExifParams(true)
-		        .imageScaleType(ImageScaleType.EXACTLY)
+		        .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
 		        .bitmapConfig(Bitmap.Config.RGB_565)
 		        .displayer(new RoundedBitmapDisplayer(sContext.getResources().getDimensionPixelSize(R.dimen.round_corner_small)))
 		        .build();
@@ -165,24 +167,28 @@ public class UILImageHandler implements IImageHandler {
         // .taskExecutor(...)
         // .taskExecutorForCachedImages(...)
         // .threadPoolSize(3) // default
-        // .threadPriority(Thread.NORM_PRIORITY - 1) // default
+        .threadPriority(Thread.NORM_PRIORITY - 2) // default Thread.NORM_PRIORITY - 1
         .tasksProcessingOrder(QueueProcessingType.LIFO) // default FIFO
-        // .denyCacheImageMultipleSizesInMemory()
-        // .memoryCache(new LruMemoryCache(2 * 1024 * 1024))
-        // .memoryCacheSize(2 * 1024 * 1024)
+        .denyCacheImageMultipleSizesInMemory()
+        .memoryCache(new WeakMemoryCache()) // default new LruMemoryCache(2 * 1024 * 1024)
+        .memoryCacheSize(4 * 1024 * 1024) // default 2 * 1024 * 1024
         // .memoryCacheSizePercentage(13) // default
         .diskCache(new UnlimitedDiscCache(new File(ISDCard.SD_IMAGE_CACHE))) // default
         // .diskCacheExtraOptions(maxImageWidthForDiskCache, maxImageHeightForDiskCache, processorForDiskCache)
         .diskCacheSize(128 * 1024 * 1024)
         // .diskCacheFileCount(100)
-        // .diskCacheFileNameGenerator(new HashCodeFileNameGenerator()) // default
+        .diskCacheFileNameGenerator(new Md5FileNameGenerator()) // default HashCodeFileNameGenerator
         // .imageDownloader(new BaseImageDownloader(mContext)) // default
         // .imageDecoder(new BaseImageDecoder()) // default
         .defaultDisplayImageOptions(defaultUilDisplay) // default
         // .writeDebugLogs()
         .build();
 	}
-
+    /*
+    TODO check this out
+    .memoryCacheExtraOptions(DensityUtils.getScreenWidth(context), DensityUtils.getScreenHeight(context))
+    .imageDownloader(new ImageDownloaderWithAccessToken(context))
+    */
 	@Override
 	public void loadHeaderImage(String uri, ImageView imageView) {
 		loadImage(uri, imageView, headerUilDisplay, null, null);
