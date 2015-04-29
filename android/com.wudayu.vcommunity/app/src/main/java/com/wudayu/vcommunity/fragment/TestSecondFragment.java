@@ -1,11 +1,9 @@
 package com.wudayu.vcommunity.fragment;
 
-import java.net.URISyntaxException;
-
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import android.content.Intent;
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,9 +14,8 @@ import android.widget.TextView;
 
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.constant.WeatherCityCode;
-import com.wudayu.vcommunity.generic.Utils;
-import com.wudayu.vcommunity.handler.IImageHandler;
-import com.wudayu.vcommunity.handler.UILImageHandler;
+import com.wudayu.vcommunity.image.IImageHandler;
+import com.wudayu.vcommunity.image.UILImageHandler;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
 import com.wudayu.vcommunity.net.protocol.WeatherResult;

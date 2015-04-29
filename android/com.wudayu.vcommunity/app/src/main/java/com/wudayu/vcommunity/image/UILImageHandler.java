@@ -1,4 +1,4 @@
-package com.wudayu.vcommunity.handler;
+package com.wudayu.vcommunity.image;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,6 +44,8 @@ import com.wudayu.vcommunity.constant.ReqCode;
 import com.wudayu.vcommunity.generic.SDCard;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.generic.interfaces.ISDCard;
+import com.wudayu.vcommunity.handler.FileHandler;
+import com.wudayu.vcommunity.handler.IFileHandler;
 import com.wudayu.vcommunity.handler.IFileHandler.CacheDir;
 import com.wudayu.vcommunity.views.SelectPicPopupWindow;
 
@@ -587,7 +589,7 @@ public class UILImageHandler implements IImageHandler {
 
 	@Override
 	public String getNewTmpImagePath() {
-		return getNewTmpImagePath(IImageHandler.SUFFIX_JPEG);
+		return getNewTmpImagePath(SUFFIX_JPEG);
 	}
 
 	@Override

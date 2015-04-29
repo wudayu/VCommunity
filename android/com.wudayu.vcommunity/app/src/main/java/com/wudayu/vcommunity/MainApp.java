@@ -3,8 +3,8 @@ package com.wudayu.vcommunity;
 import android.app.Application;
 
 import com.nostra13.universalimageloader.utils.L;
-import com.wudayu.vcommunity.handler.IImageHandler;
-import com.wudayu.vcommunity.handler.UILImageHandler;
+import com.wudayu.vcommunity.image.IImageHandler;
+import com.wudayu.vcommunity.image.UILImageHandler;
 
 /**
  *

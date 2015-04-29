@@ -1,8 +1,6 @@
 package com.wudayu.vcommunity.fragment;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -22,9 +20,8 @@ import android.widget.Toast;
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.activity.TestActivity;
 import com.wudayu.vcommunity.generic.Utils;
-import com.wudayu.vcommunity.handler.IImageHandler;
-import com.wudayu.vcommunity.handler.UILImageHandler;
-import com.wudayu.vcommunity.listener.BannerViewOnItemClickListener;
+import com.wudayu.vcommunity.image.IImageHandler;
+import com.wudayu.vcommunity.image.UILImageHandler;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.views.BannerView;
 import com.wudayu.vcommunity.views.CountDownView;
