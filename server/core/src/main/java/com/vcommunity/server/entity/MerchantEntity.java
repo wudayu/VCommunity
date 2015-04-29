@@ -1,5 +1,8 @@
 package com.vcommunity.server.entity;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -12,8 +15,9 @@ import javax.persistence.Transient;
  * @date 4/27/15 9:56 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
-//@Entity
-//@Table(name = "t_merchant")
+@Entity
+@Table(name = "t_merchant")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class MerchantEntity extends BaseEntity {
 
     /** 商户的名称 */

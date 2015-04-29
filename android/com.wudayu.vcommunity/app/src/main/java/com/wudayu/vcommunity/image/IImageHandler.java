@@ -1,4 +1,4 @@
-package com.wudayu.vcommunity.handler;
+package com.wudayu.vcommunity.image;
 
 import android.app.Activity;
 import android.graphics.Bitmap;

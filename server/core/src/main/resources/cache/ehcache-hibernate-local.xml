@@ -2,7 +2,7 @@
 <!DOCTYPE xml>
 <ehcache updateCheck="false" name="hibernateCache">
 	<!-- http://ehcache.org/ehcache.xml -->
-	<diskStore path="java.io.tmpdir/ehcache/showcase/hibernate" />
+	<diskStore path="java.io.tmpdir/ehcache/vcommunity/hibernate" />
 
 	<!-- DefaultCache setting. -->
 	<defaultCache maxEntriesLocalHeap="10000" eternal="false" timeToIdleSeconds="300" timeToLiveSeconds="600"
@@ -11,4 +11,24 @@
 	<!-- Special objects setting. -->
 	<cache name="com.vcommunity.server.entity.Attachment" maxEntriesLocalHeap="1000" eternal="true"
 		overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.CityEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.CommunityEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.AdminEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.CompaintEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.CommunityEntity.merchants" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.CompaintPicEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.MerchantEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.OwnerEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.PropertyCompanyEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
+	<cache name="com.vcommunity.server.entity.PropertyEntity" maxEntriesLocalHeap="1000" eternal="true"
+		   overflowToDisk="true" maxEntriesLocalDisk="10000" />
 </ehcache>
