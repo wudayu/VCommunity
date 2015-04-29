@@ -184,7 +184,7 @@ public class TestThirdFragment extends BaseFragment {
             }
         });
         */
-        netHandler.postForUploadMultiplePic(new String[]{filePath, filePath}, new Callback<VcListResult<String>>() {
+        netHandler.postForUploadSinglePic(filePath, new Callback<VcListResult<String>>() {
             @Override
             public void success(VcListResult<String> result, Response response) {
                 // uploadedUUid = result.getObject();
