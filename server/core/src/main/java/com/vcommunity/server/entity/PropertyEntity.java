@@ -1,8 +1,14 @@
 package com.vcommunity.server.entity;
 
+import com.google.common.collect.Lists;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import java.util.List;
 
 /**
  * 物业表
@@ -12,8 +18,9 @@ import javax.persistence.Transient;
  * @date 4/27/15 9:44 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
-//@Entity
-//@Table(name = "t_property")
+@Entity
+@Table(name = "t_property")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PropertyEntity extends BaseEntity {
 
     /** 姓名 */
@@ -42,6 +49,12 @@ public class PropertyEntity extends BaseEntity {
 
     /** 性别 */
     private String gender;
+
+    /** 身份证号 */
+    private String idCard;
+
+    @OneToMany(mappedBy = "responsibility")
+    private List<CompaintEntity> compaints = Lists.newArrayList();
 
     public String getUserName() {
         return userName;
@@ -113,5 +126,21 @@ public class PropertyEntity extends BaseEntity {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public List<CompaintEntity> getCompaints() {
+        return compaints;
+    }
+
+    public void setCompaints(List<CompaintEntity> compaints) {
+        this.compaints = compaints;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 }

@@ -1,8 +1,12 @@
 package com.vcommunity.server.entity;
 
+import com.google.common.collect.Lists;
+import org.hibernate.annotations.*;
+
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+import java.util.List;
 
 /**
  * 业主表
@@ -12,8 +16,9 @@ import javax.persistence.Transient;
  * @date 4/27/15 9:36 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
-//@Entity
-//@Table(name = "t_owner")
+@Entity
+@Table(name = "t_owner")
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class OwnerEntity extends BaseEntity {
     /** 昵称 */
     private String nickname;
@@ -41,6 +46,13 @@ public class OwnerEntity extends BaseEntity {
 
     /** 性别 */
     private String gender;
+
+    @ManyToOne
+    @JoinColumn(name = "community_uuid")
+    private CommunityEntity community;
+
+    @OneToMany(mappedBy = "createUser")
+    private List<CompaintEntity> compaints = Lists.newArrayList();
 
     public String getNickname() {
         return nickname;
@@ -112,5 +124,13 @@ public class OwnerEntity extends BaseEntity {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public CommunityEntity getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(CommunityEntity community) {
+        this.community = community;
     }
 }

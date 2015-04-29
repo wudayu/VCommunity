@@ -1,8 +1,11 @@
 package com.vcommunity.server.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 投诉表
@@ -12,8 +15,9 @@ import java.util.Date;
  * @date 4/27/15 10:03 PM
  * @e-mail zhouxy.vortex@gmail.com
  */
-//@Entity
-//@Table(name = "t_compaint")
+@Entity
+@Table(name = "t_compaint")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class CompaintEntity extends BaseEntity {
 
     /** 标题 */
@@ -45,6 +49,17 @@ public class CompaintEntity extends BaseEntity {
 
     /** 对此次投诉处理的评论 */
     private String comment;
+
+    @ManyToOne
+    @JoinColumn(name = "create_user")
+    private OwnerEntity createUser;
+
+    @ManyToOne
+    @JoinColumn(name = "responsibility")
+    private PropertyEntity responsibility;
+
+    @OneToMany(mappedBy = "compaint")
+    private List<CompaintPicEntity> pics;
 
     public String getTitle() {
         return title;
@@ -124,5 +139,29 @@ public class CompaintEntity extends BaseEntity {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public OwnerEntity getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(OwnerEntity createUser) {
+        this.createUser = createUser;
+    }
+
+    public PropertyEntity getResponsibility() {
+        return responsibility;
+    }
+
+    public void setResponsibility(PropertyEntity responsibility) {
+        this.responsibility = responsibility;
+    }
+
+    public List<CompaintPicEntity> getPics() {
+        return pics;
+    }
+
+    public void setPics(List<CompaintPicEntity> pics) {
+        this.pics = pics;
     }
 }
