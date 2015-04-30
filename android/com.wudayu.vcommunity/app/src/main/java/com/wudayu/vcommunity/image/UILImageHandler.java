@@ -43,12 +43,14 @@ import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.constant.Constant;
 import com.wudayu.vcommunity.constant.ImageLoaderHelper;
 import com.wudayu.vcommunity.constant.ReqCode;
+import com.wudayu.vcommunity.generic.DensityUtils;
 import com.wudayu.vcommunity.generic.SDCard;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.generic.interfaces.ISDCard;
 import com.wudayu.vcommunity.handler.FileHandler;
 import com.wudayu.vcommunity.handler.IFileHandler;
 import com.wudayu.vcommunity.handler.IFileHandler.CacheDir;
+import com.wudayu.vcommunity.image.component.ImageDownloaderWithAccessToken;
 import com.wudayu.vcommunity.views.SelectPicPopupWindow;
 
 /**
@@ -162,7 +164,7 @@ public class UILImageHandler implements IImageHandler {
 		        .build();
 
 		defaultUilLoader = new ImageLoaderConfiguration.Builder(sContext)
-		// .memoryCacheExtraOptions(480, 800) // default = device screen dimensions
+		.memoryCacheExtraOptions(DensityUtils.getScreenWidth(sContext), DensityUtils.getScreenHeight(sContext)) // default = device screen dimensions
         // .diskCacheExtraOptions(480, 800, null)
         // .taskExecutor(...)
         // .taskExecutorForCachedImages(...)
@@ -178,17 +180,13 @@ public class UILImageHandler implements IImageHandler {
         .diskCacheSize(128 * 1024 * 1024)
         // .diskCacheFileCount(100)
         .diskCacheFileNameGenerator(new Md5FileNameGenerator()) // default HashCodeFileNameGenerator
-        // .imageDownloader(new BaseImageDownloader(mContext)) // default
+        .imageDownloader(new ImageDownloaderWithAccessToken(sContext)) // default
         // .imageDecoder(new BaseImageDecoder()) // default
         .defaultDisplayImageOptions(defaultUilDisplay) // default
         // .writeDebugLogs()
         .build();
 	}
-    /*
-    TODO check this out
-    .memoryCacheExtraOptions(DensityUtils.getScreenWidth(context), DensityUtils.getScreenHeight(context))
-    .imageDownloader(new ImageDownloaderWithAccessToken(context))
-    */
+
 	@Override
 	public void loadHeaderImage(String uri, ImageView imageView) {
 		loadImage(uri, imageView, headerUilDisplay, null, null);

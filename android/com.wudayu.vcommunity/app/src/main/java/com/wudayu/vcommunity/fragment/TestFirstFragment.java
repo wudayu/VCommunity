@@ -1,6 +1,8 @@
 package com.wudayu.vcommunity.fragment;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -22,6 +24,7 @@ import com.wudayu.vcommunity.activity.TestActivity;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.image.IImageHandler;
 import com.wudayu.vcommunity.image.UILImageHandler;
+import com.wudayu.vcommunity.listener.BannerViewOnItemClickListener;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.views.BannerView;
 import com.wudayu.vcommunity.views.CountDownView;
@@ -109,7 +112,6 @@ public class TestFirstFragment extends BaseFragment {
 
 	private void testData() {
 		// HomePageBanner
-        /*
 		List<View> views = new ArrayList<View>();
 		ImageView view1 = (ImageView) LayoutInflater.from(this.getActivity()).inflate(R.layout.item_img_banner_view, null);
 		imageHandler.loadImage("http://pic1.win4000.com/wallpaper/d/53e85d4307c60.jpg", view1);
@@ -137,7 +139,6 @@ public class TestFirstFragment extends BaseFragment {
 		views.add(view6);
 		bvBanner.setViews(views);
 		bvBanner.setRolling(3000);
-		*/
 
 		// CountDownView
 		tvCountDown.setCountDownAndStart(5000, 10);
