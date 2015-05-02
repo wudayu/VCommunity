@@ -6,6 +6,7 @@
     <color name="col_app_grey_line">#FFD2D2D2</color>
     <color name="col_app_grey_text">#FF3d5561</color>
     <color name="col_app_red_text">#FFFF4F56</color>
+    <color name="col_app_white_text">#FFFFFFFF</color>
     <color name="transparent_black_10_100">#19000000</color>
     <color name="transparent_black_20_100">#32000000</color>
     <color name="transparent_black_30_100">#4C000000</color>
@@ -36,8 +37,4 @@
     <!-- 弹出框 -->
     <color name="col_popwindow_bg">#FFF4F6F5</color>
     <color name="col_popwindow_cancel_bg">#FF889098</color>
-    <!-- Drop down list -->
-    <color name="drop_down_list_header_font_color">#000000</color>
-    <color name="drop_down_list_header_second_font_color">#000000</color>
-    <color name="drop_down_list_footer_font_color">#000000</color>
 </resources>

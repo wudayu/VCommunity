@@ -65,7 +65,7 @@ public class TestFirstFragment extends BaseFragment {
 
 	@Override
 	protected void initEvents() {
-		ivTest.setOnClickListener(new OnClickListener() {
+		tvCountDown.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(TestFirstFragment.this.getActivity(), TestActivity.class);
