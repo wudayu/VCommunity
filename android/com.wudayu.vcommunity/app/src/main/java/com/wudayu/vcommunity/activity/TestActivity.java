@@ -2,25 +2,9 @@ package com.wudayu.vcommunity.activity;
 
 import android.os.AsyncTask;
 import android.view.View;
-import android.widget.TextView;
 
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.generic.Utils;
-import com.wudayu.vcommunity.handler.DataHandler;
-import com.wudayu.vcommunity.handler.IDataHandler;
-import com.wudayu.vcommunity.handler.IDataHandler.DataCallback;
-import com.wudayu.vcommunity.model.VcTestUser;
-import com.wudayu.vcommunity.model.VcUser;
-import com.wudayu.vcommunity.net.INetHandler;
-import com.wudayu.vcommunity.net.RetrofitNetHandler;
-import com.wudayu.vcommunity.net.protocol.VcObjectResult;
-import com.wudayu.vcommunity.views.ProcessingDialog;
-
-import junit.framework.Test;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.Options;
