@@ -1,6 +1,6 @@
 <resources>
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <item name="android:windowNoTitle">true</item>
+    <style name="AppBaseTheme" parent="@style/Sherlock.__Theme.Light">
+        <!-- <item name="android:windowNoTitle">true</item> -->
     </style>
     <style name="AppTheme" parent="AppBaseTheme"> <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
@@ -9,28 +9,38 @@
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
-    <style name="drop_down_list_header_progress_bar_style">
-        <item name="android:minHeight">@dimen/drop_down_list_header_progress_bar_height</item>
-        <item name="android:maxHeight">@dimen/drop_down_list_header_progress_bar_height</item>
+<!-- Pull to Refresh Component -->
+    <style name="Theme.PullToRefresh" parent="AppTheme">
+        <item name="ptrHeaderStyle">@style/Widget.Custom.PtrHeader</item>
     </style>
+    <!--
+      ptrHeaderStyle above refers to this style which contains all of the
+      DefaultHeaderTransformer customization values. The name and parent
+      can be anything, but only the attributes defined in
+      library/res/attrs.xml are actually read in.
+    -->
+    <style name="Widget.Custom.PtrHeader" parent="android:Widget">
+        <!-- The background of the header view -->
+        <item name="ptrHeaderBackground">@color/col_app</item>
 
-    <style name="drop_down_list_footer_progress_bar_style">
-        <item name="android:minHeight">@dimen/drop_down_list_footer_progress_bar_height</item>
-        <item name="android:maxHeight">@dimen/drop_down_list_footer_progress_bar_height</item>
-    </style>
+        <!-- The height of the header view. Please note, only set if in you really need to
+        <item name="ptrHeaderHeight">...</item> -->
 
-    <style name="drop_down_list_header_font_style">
-        <item name="android:textColor">@color/drop_down_list_header_font_color</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
-    </style>
+        <!-- TextAppearance of the header view's title text -->
+        <item name="ptrHeaderTitleTextAppearance">@color/col_app_white_text</item>
 
-    <style name="drop_down_list_header_second_font_style">
-        <item name="android:textColor">@color/drop_down_list_header_second_font_color</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-    </style>
+        <!-- Color to tint the progress bar
+        <item name="ptrProgressBarColor">@color/col_app</item> -->
 
-    <style name="drop_down_list_footer_font_style">
-        <item name="android:textColor">@color/drop_down_list_footer_font_color</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <!-- Radius of the progress bar corners
+        <item name="ptrProgressBarCornerRadius">@dimen/dp04</item> -->
+
+        <!-- Style of the Progress Bar. Values are either: inside or outside
+        <item name="ptrProgressBarStyle">...</item> -->
+
+        <!-- The strings to be displayed at the various states -->
+        <item name="ptrPullText">@string/str_ptr_pull_text</item>
+        <item name="ptrRefreshingText">@string/str_ptr_refreshing_text</item>
+        <item name="ptrReleaseText">@string/str_ptr_release_text</item>
     </style>
 </resources>
