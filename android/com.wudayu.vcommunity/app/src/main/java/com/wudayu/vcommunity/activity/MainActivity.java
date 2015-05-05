@@ -39,6 +39,7 @@ public class MainActivity extends BaseActivity {
 	TestFirstFragment testFirstFragment = null;
 	TestSecondFragment testSecondFragment = null;
 	TestThirdFragment testThirdFragment = null;
+	TestThirdFragment testForthFragment = null;
 
 
 	@Override
@@ -57,10 +58,12 @@ public class MainActivity extends BaseActivity {
 		testFirstFragment = new TestFirstFragment();
 		testSecondFragment = new TestSecondFragment();
 		testThirdFragment = new TestThirdFragment();
+		testForthFragment = new TestThirdFragment();
 
 		fragments.add(testFirstFragment);
 		fragments.add(testSecondFragment);
 		fragments.add(testThirdFragment);
+		fragments.add(testForthFragment);
 
 		adapter.addAll(fragments);
 		vpMain.setAdapter(adapter);
@@ -73,6 +76,8 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onPageSelected(int pos) {
 				psbMain.selectItemUI(pos);
+				// TODO make this test code right
+				startActivity(new Intent(MainActivity.this, LoginActivity.class));
 			}
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {}
@@ -104,6 +109,7 @@ public class MainActivity extends BaseActivity {
 		testFirstFragment.onActivityResult(requestCode, resultCode, data);
 		testSecondFragment.onActivityResult(requestCode, resultCode, data);
 		testThirdFragment.onActivityResult(requestCode, resultCode, data);
+		testForthFragment.onActivityResult(requestCode, resultCode, data);
 
 		super.onActivityResult(requestCode, resultCode, data);
 	}

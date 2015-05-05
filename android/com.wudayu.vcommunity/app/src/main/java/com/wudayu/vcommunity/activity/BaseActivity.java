@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
+import android.view.View;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.wudayu.vcommunity.constant.BroadcastActions;
@@ -81,9 +82,19 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
+	protected void showCancelableProcessingDialog() {
+		processingDialog = new ProcessingDialog(this, true, null);
+		processingDialog.show();
+	}
+
 	protected void dismissProcessingDialog() {
 		if (processingDialog != null) {
 			processingDialog.dismiss();
 		}
 	}
+
+	public void finishThis(View view) {
+		this.finish();
+	}
+
 }

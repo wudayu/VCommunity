@@ -35,4 +35,9 @@
     <string name="str_ptr_pull_text">下拉刷新</string>
     <string name="str_ptr_refreshing_text">加载中</string>
     <string name="str_ptr_release_text">松开</string>
+    <!-- 登录界面 -->
+    <string name="tv_cancel">取消</string>
+    <string name="tv_name_taken">请登录</string>
+    <string name="edt_username_hint">请输入账号</string>
+    <string name="edt_password_hint">请输入密码</string>
 </resources>
