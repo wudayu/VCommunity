@@ -82,8 +82,13 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	protected void showCancelableProcessingDialog() {
-		processingDialog = new ProcessingDialog(this, true, null);
+	protected void showProcessingDialog(String message, boolean cancelable) {
+        if (message == null) {
+            processingDialog = new ProcessingDialog(this, cancelable, null);
+        } else {
+            processingDialog = new ProcessingDialog(this, message, cancelable, null);
+        }
+
 		processingDialog.show();
 	}
 
