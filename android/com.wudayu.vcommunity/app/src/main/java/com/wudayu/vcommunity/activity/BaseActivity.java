@@ -2,6 +2,7 @@ package com.wudayu.vcommunity.activity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -82,11 +83,11 @@ public abstract class BaseActivity extends SherlockFragmentActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	protected void showProcessingDialog(String message, boolean cancelable) {
+	protected void showProcessingDialog(String message, boolean cancelable, DialogInterface.OnCancelListener cancelListener) {
         if (message == null) {
-            processingDialog = new ProcessingDialog(this, cancelable, null);
+            processingDialog = new ProcessingDialog(this, cancelable, cancelListener);
         } else {
-            processingDialog = new ProcessingDialog(this, message, cancelable, null);
+            processingDialog = new ProcessingDialog(this, message, cancelable, cancelListener);
         }
 
 		processingDialog.show();

@@ -28,6 +28,7 @@ public class LoginActivity extends BaseActivity {
     private CheckBox cbRemPw;
     private Button btnForgetPassword;
     private Button btnRegisterImmediately;
+    private Button btnLogin;
 
     ViewPagerAdapter pagerAdapter = null;
     IImageHandler imageHandler = null;
@@ -45,6 +46,7 @@ public class LoginActivity extends BaseActivity {
         cbRemPw = (CheckBox) findViewById(R.id.cb_rem_pw);
         btnForgetPassword = (Button) findViewById(R.id.btn_forget_password);
         btnRegisterImmediately = (Button) findViewById(R.id.btn_register_immediately);
+        btnLogin = (Button) findViewById(R.id.btn_login);
 
         pagerAdapter = new ViewPagerAdapter();
         imageHandler = UILImageHandler.getInstance(this);
@@ -52,7 +54,12 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initEvents() {
-
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showProcessingDialog(null, true, null);
+            }
+        });
     }
 
     @Override
