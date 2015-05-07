@@ -1,0 +1,4 @@
+<selector xmlns:Android="http://schemas.android.com/apk/res/android">
+    <item Android:drawable="@drawable/shape_square_app_frame_appgrey_pressed_bg" Android:state_pressed="true"/>
+    <item Android:drawable="@drawable/shape_square_app_frame_appgrey_bg"/>
+</selector>

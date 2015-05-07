@@ -23,20 +23,16 @@
                 style="@style/TvStyleMediumWhite"
                 android:onClick="finishThis"/>
         </RelativeLayout>
-        <ImageView
-            android:id="@+id/iv_header"
-            android:layout_width="@dimen/dp80"
-            android:layout_height="@dimen/dp80"
-            android:contentDescription="@null"
-            android:scaleType="fitXY"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/icon_header_login_ac"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_identity"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp108" />
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp14"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
             style="@style/TvStyleLargeWhite"
             android:text="@string/tv_name_taken"/>
     </LinearLayout>
@@ -115,8 +111,7 @@
             android:button="@null"
             android:drawableLeft="@drawable/selector_chk_remember_password"
             android:drawablePadding="@dimen/dp05"
-            android:text="@string/chk_remember_password"
-            android:checked="false"/>
+            android:text="@string/chk_remember_password" />
     </RelativeLayout>
     <Button
         android:layout_width="match_parent"

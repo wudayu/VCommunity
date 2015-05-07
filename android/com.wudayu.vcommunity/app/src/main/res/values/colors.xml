@@ -9,6 +9,8 @@
     <color name="col_app_white_text">#FFFFFFFF</color>
     <color name="col_app_white">#FFFFFFFF</color>
     <color name="col_app_transparent">#00000000</color>
+    <color name="col_dark_app">#FF5A86D5</color>
+    <color name="col_dark_app_grey">#FFDFDFDF</color>
     <color name="transparent_black_10_100">#19000000</color>
     <color name="transparent_black_20_100">#32000000</color>
     <color name="transparent_black_30_100">#4C000000</color>

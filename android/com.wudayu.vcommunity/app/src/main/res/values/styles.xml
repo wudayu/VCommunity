@@ -86,10 +86,11 @@
 
 <!-- Button -->
     <style name="BtnStyleLargeApp" parent="TvStyleLargeWhite">
-        <item name="android:background">@drawable/shape_round_none_frame_app_bg</item>
+        <item name="android:background">@drawable/selector_round_none_frame_app_bg</item>
     </style>
     <style name="BtnStyleMediumFunction" parent="TvStyleMediumApp">
-        <item name="android:background">@drawable/shape_square_app_frame_appgrey_bg</item>
+        <item name="android:background">@drawable/selector_square_app_frame_appgrey_bg</item>
     </style>
 <!-- End -->
+
 </resources>

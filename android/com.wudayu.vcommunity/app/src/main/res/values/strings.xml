@@ -44,4 +44,5 @@
     <string name="btn_login">登录</string>
     <string name="btn_forget_password">忘记密码?</string>
     <string name="btn_register_immediately">立即注册</string>
+    <string name="tv_identity_prefix">我是</string>
 </resources>
