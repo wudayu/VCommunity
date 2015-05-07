@@ -18,6 +18,7 @@ public class BaseResult {
 
     public static final int MESSAGE_TYPE_NORMAL = 0x01;
     public static final int MESSAGE_TYPE_NEED_CONFIRMED = 0x02;
+    public static final int MESSAGE_TYPE_NEED_LOGIN = 0x03;
 
 	@JsonProperty(value = "success")
 	private boolean success;

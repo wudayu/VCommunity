@@ -7,6 +7,8 @@
     <style name="AppNoTitle" parent="AppTheme" >
         <item name="android:windowNoTitle">true</item>
     </style>
+
+<!-- Popup -->
     <style name="PopupAnimation" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
@@ -46,6 +48,22 @@
         <item name="ptrRefreshingText">@string/str_ptr_refreshing_text</item>
         <item name="ptrReleaseText">@string/str_ptr_release_text</item>
     </style>
+<!-- End -->
+
+<!-- ProgressWheel -->
+    <declare-styleable name="ProgressWheel">
+        <attr name="matProg_progressIndeterminate" format="boolean" />
+        <attr name="matProg_barColor" format="color" />
+        <attr name="matProg_rimColor" format="color" />
+        <attr name="matProg_innerColor" format="color" />
+        <attr name="matProg_rimWidth" format="dimension" />
+        <attr name="matProg_spinSpeed" format="float" />
+        <attr name="matProg_barSpinCycleTime" format="integer" />
+        <attr name="matProg_circleRadius" format="dimension" />
+        <attr name="matProg_fillRadius" format="boolean" />
+        <attr name="matProg_barWidth" format="dimension" />
+        <attr name="matProg_linearProgress" format="boolean" />
+    </declare-styleable>
 <!-- End -->
 
 <!-- TextSize -->

@@ -50,10 +50,6 @@ public class ProcessingDialog extends AlertDialog {
 		if (mMessage != null)
 			tvMessage.setText(mMessage);
 
-		ImageView ivCircle = (ImageView) findViewById(R.id.iv_processing);
-		ivCircle.setBackgroundResource(R.drawable.processing_dialog_animation);
-		AnimationDrawable frameAnimation = (AnimationDrawable) ivCircle.getBackground();
-		frameAnimation.start();
 	}
 
 }
