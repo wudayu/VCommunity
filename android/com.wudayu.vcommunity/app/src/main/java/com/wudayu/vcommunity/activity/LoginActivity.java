@@ -23,7 +23,6 @@ import java.util.List;
 public class LoginActivity extends BaseActivity {
 
     private ViewPager vpIdentity;
-    private TextView tvCancel;
     private TextView tvName;
     private CheckBox cbRemPw;
     private Button btnForgetPassword;
@@ -41,7 +40,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initComponents() {
         vpIdentity = (ViewPager) findViewById(R.id.vp_identity);
-        tvCancel = (TextView) findViewById(R.id.tv_cancel);
         tvName = (TextView) findViewById(R.id.tv_name);
         cbRemPw = (CheckBox) findViewById(R.id.cb_rem_pw);
         btnForgetPassword = (Button) findViewById(R.id.btn_forget_password);

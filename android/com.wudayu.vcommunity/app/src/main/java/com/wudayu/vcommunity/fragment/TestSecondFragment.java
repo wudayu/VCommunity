@@ -52,54 +52,14 @@ public class TestSecondFragment extends BaseFragment {
 
 	@Override
 	protected void initEvents() {
-		tvWeather.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-                /*
-				try {
-					Intent gaodeMapIntent = new Intent("android.intent.action.VIEW", android.net.Uri.parse("androidamap://showTraffic?sourceApplication=softname&poiid=BGVIS1&lat="+"39.98871"+"&lon="+"116.43234"+"&level=10&dev=0"));
-					gaodeMapIntent.setPackage("com.autonavi.minimap");
-					@SuppressWarnings("deprecation")
-					Intent baiduMapIntent = Intent.getIntent("intent://map/direction?origin=我的位置&destination=latlng:39.98871,116.43234|name:这是目的地&mode=driving#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
-					if (gaodeMapIntent.resolveActivity(TestSecondFragment.this.getActivity().getPackageManager()) != null) {
-						startActivity(gaodeMapIntent);
-					} else if (baiduMapIntent.resolveActivity(TestSecondFragment.this.getActivity().getPackageManager()) != null) {
-						startActivity(baiduMapIntent);
-					} else {
-						Utils.toastMessage(TestSecondFragment.this.getActivity(), "");
-					}
-				} catch (URISyntaxException e) {
-					Utils.toastMessage(TestSecondFragment.this.getActivity(), "");
-				}
-				*/
-                imageHandler.cleanImageCache();
-			}
-		});
 	}
 
 	@Override
 	protected void initData() {
-		Drawable testIcon = getResources().getDrawable(R.drawable.ic_launcher);
-		testIcon.setBounds(0, 0, testIcon.getIntrinsicHeight(), testIcon.getIntrinsicWidth());
-		tvWeather.setCompoundDrawables(testIcon, null, null, null);
-		tvWeather.setCompoundDrawablePadding(10);
 	}
 
 	@Override
 	protected void afterAllSet() {
-		processingDialog = new ProcessingDialog(TestSecondFragment.this.getActivity());
-		processingDialog.show();
-		netHandler.getForWeather(WeatherCityCode.findCityCodeByCityName("苏州"), new Callback<WeatherResult>() {
-			@Override
-			public void success(WeatherResult result, Response response) {
-				tvWeather.setText("SUCCESS: " + result);
-				dismissProcessingDialog();
-			}
-			@Override
-			public void failure(RetrofitError error) {
-				RetrofitNetHandler.toastNetworkError(TestSecondFragment.this.getActivity(), error);
-				dismissProcessingDialog();
-			}
-		});
 	}
+	
 }

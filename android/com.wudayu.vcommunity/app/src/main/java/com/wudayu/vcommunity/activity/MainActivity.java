@@ -77,7 +77,8 @@ public class MainActivity extends BaseActivity {
 			public void onPageSelected(int pos) {
 				psbMain.selectItemUI(pos);
 				// TODO make this test code right
-				startActivity(new Intent(MainActivity.this, LoginActivity.class));
+				if (pos == 3)
+					startActivity(new Intent(MainActivity.this, LoginActivity.class));
 			}
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {}

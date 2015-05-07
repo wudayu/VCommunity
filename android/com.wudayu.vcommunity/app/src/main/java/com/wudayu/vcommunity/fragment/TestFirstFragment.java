@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.wudayu.vcommunity.R;
+import com.wudayu.vcommunity.activity.MainActivity;
 import com.wudayu.vcommunity.activity.TestActivity;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.image.IImageHandler;
@@ -64,7 +65,7 @@ public class TestFirstFragment extends BaseFragment {
 	}
 
 	@Override
-	protected void initEvents() {
+	protected void initEvents() {((MainActivity) getActivity()).getSupportActionBar();
 		tvCountDown.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {

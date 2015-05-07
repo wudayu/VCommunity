@@ -87,7 +87,7 @@ public class TestThirdFragment extends BaseFragment {
 
 	@Override
 	protected void afterAllSet() {
-        ///*
+        /*
 		processingDialog = new ProcessingDialog(this.getActivity(), true, null);
 		processingDialog.show();
 
@@ -104,7 +104,7 @@ public class TestThirdFragment extends BaseFragment {
 				dismissProcessingDialog();
 			}
 		});
-		//*/
+		*/
 	}
 
 	public void cutTheImage(Uri uri) {

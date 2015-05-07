@@ -1,5 +1,6 @@
 package com.wudayu.vcommunity.fragment;
 
+import com.actionbarsherlock.app.SherlockFragment;
 import com.wudayu.vcommunity.views.ProcessingDialog;
 
 import android.content.Context;
@@ -19,7 +20,7 @@ import android.view.ViewGroup;
  *
  **/
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends SherlockFragment {
 
 	protected Context mContext = null;
 	protected ProcessingDialog processingDialog = null;

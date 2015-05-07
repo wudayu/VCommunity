@@ -41,7 +41,7 @@ public class TestActivity extends BaseActivity {
 				// options
 				.options(Options.create()
 						// Here we make the refresh scroll distance to 45% of the refreshable view's height
-						.scrollDistance(.45f)
+						.scrollDistance(.4f)
 						// Here we define a custom header layout which will be inflated and used
 						// .headerLayout(R.layout.layout_pull_to_refresh)
 						// Here we define a custom header transformer which will alter the header
