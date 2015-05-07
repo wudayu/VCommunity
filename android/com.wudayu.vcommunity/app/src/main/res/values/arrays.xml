@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="identities">
+        <item>业主</item>
+        <item>物业员工</item>
+        <item>商家</item>
+        <item>商户Admin</item>
+    </string-array>
+</resources>
