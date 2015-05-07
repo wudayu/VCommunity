@@ -128,12 +128,14 @@
         android:layout_marginLeft="@dimen/dp30"
         android:layout_marginRight="@dimen/dp30">
         <Button
+            android:id="@+id/btn_forget_password"
             android:layout_width="@dimen/dp120"
             android:layout_height="@dimen/dp35"
             android:layout_alignParentLeft="true"
             android:text="@string/btn_forget_password"
             style="@style/BtnStyleMediumFunction"/>
         <Button
+            android:id="@+id/btn_register_immediately"
             android:layout_width="@dimen/dp120"
             android:layout_height="@dimen/dp35"
             android:layout_alignParentRight="true"

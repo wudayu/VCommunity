@@ -3,6 +3,8 @@ package com.wudayu.vcommunity.activity;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +22,12 @@ import java.util.List;
  */
 public class LoginActivity extends BaseActivity {
 
-    ViewPager vpIdentity = null;
+    private ViewPager vpIdentity;
+    private TextView tvCancel;
+    private TextView tvName;
+    private CheckBox cbRemPw;
+    private Button btnForgetPassword;
+    private Button btnRegisterImmediately;
 
     ViewPagerAdapter pagerAdapter = null;
     IImageHandler imageHandler = null;
@@ -33,6 +40,11 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initComponents() {
         vpIdentity = (ViewPager) findViewById(R.id.vp_identity);
+        tvCancel = (TextView) findViewById(R.id.tv_cancel);
+        tvName = (TextView) findViewById(R.id.tv_name);
+        cbRemPw = (CheckBox) findViewById(R.id.cb_rem_pw);
+        btnForgetPassword = (Button) findViewById(R.id.btn_forget_password);
+        btnRegisterImmediately = (Button) findViewById(R.id.btn_register_immediately);
 
         pagerAdapter = new ViewPagerAdapter();
         imageHandler = UILImageHandler.getInstance(this);
