@@ -27,7 +27,6 @@ import com.wudayu.vcommunity.model.VcUser;
 import com.wudayu.vcommunity.net.INetHandler;
 import com.wudayu.vcommunity.net.RetrofitNetHandler;
 import com.wudayu.vcommunity.net.protocol.VcListResult;
-import com.wudayu.vcommunity.net.protocol.VcObjectResult;
 import com.wudayu.vcommunity.views.ProcessingDialog;
 
 /**
@@ -36,11 +35,11 @@ import com.wudayu.vcommunity.views.ProcessingDialog;
  * @En_Name: David Wu
  * @E-mail: wudayu@gmail.com
  * @Created Time: Oct 21, 2014, 7:55:48 PM
- * @Description: Test Fragment No.3
+ * @Description: 我的Fragment
  *
  **/
 
-public class TestThirdFragment extends BaseFragment {
+public class MineFragment extends BaseFragment {
 
 	public static final String CURR_USER_ID = "4fef1bb5822e47ca9453443f7fa4820c";
 
@@ -59,7 +58,7 @@ public class TestThirdFragment extends BaseFragment {
 
 	@Override
 	protected View initContainer(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.fragment_test_third, null);
+		return inflater.inflate(R.layout.fragment_mine, null);
 	}
 
 	@Override
@@ -76,7 +75,7 @@ public class TestThirdFragment extends BaseFragment {
 			@Override
 			public void onClick(View arg0) {
 				takePicturePath = imageHandler.getNewTmpImagePath();
-				imageHandler.selectGetImageWay(TestThirdFragment.this.getActivity(), ivHeader, takePicturePath);
+				imageHandler.selectGetImageWay(MineFragment.this.getActivity(), ivHeader, takePicturePath);
 			}
 		});
 	}
@@ -100,7 +99,7 @@ public class TestThirdFragment extends BaseFragment {
 			}
 			@Override
 			public void failure(RetrofitError error) {
-				RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+				RetrofitNetHandler.toastNetworkError(MineFragment.this.getActivity(), error);
 				dismissProcessingDialog();
 			}
 		});
@@ -160,7 +159,7 @@ public class TestThirdFragment extends BaseFragment {
 			}
 			@Override
 			public void failure(RetrofitError error) {
-				RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+				RetrofitNetHandler.toastNetworkError(MineFragment.this.getActivity(), error);
                 Utils.debug("error = " + error);
 				dismissProcessingDialog();
 			}
@@ -178,7 +177,7 @@ public class TestThirdFragment extends BaseFragment {
 
             @Override
             public void failure(RetrofitError error) {
-                RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                RetrofitNetHandler.toastNetworkError(MineFragment.this.getActivity(), error);
                 Utils.debug("error = " + error);
                 dismissProcessingDialog();
             }
@@ -195,7 +194,7 @@ public class TestThirdFragment extends BaseFragment {
 
             @Override
             public void failure(RetrofitError error) {
-                RetrofitNetHandler.toastNetworkError(TestThirdFragment.this.getActivity(), error);
+                RetrofitNetHandler.toastNetworkError(MineFragment.this.getActivity(), error);
                 Utils.debug("error = " + error);
                 dismissProcessingDialog();
             }

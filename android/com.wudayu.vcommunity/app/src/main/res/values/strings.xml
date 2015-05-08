@@ -12,9 +12,10 @@
 	<!-- 加载框 -->
     <string name="str_loading">载入中&#8230;</string>
 	<!-- 主界面 -->
-	<string name="page_select_01">Fragment01</string>
-	<string name="page_select_02">Fragment02</string>
-	<string name="page_select_03">Fragment03</string>
+	<string name="page_select_01">首页</string>
+	<string name="page_select_02">邻里圈</string>
+	<string name="page_select_03">社区团</string>
+    <string name="page_select_04">我的</string>
 	<!-- 测试页面 -->
 	<string name="tv_test_activity_test">testteste\ntest</string>
 	<!-- 错误信息 -->
@@ -45,4 +46,12 @@
     <string name="btn_forget_password">忘记密码?</string>
     <string name="btn_register_immediately">立即注册</string>
     <string name="tv_identity_prefix">我是</string>
+    <!-- 首页 -->
+    <string name="str_title_home">威社区</string>
+    <!-- 邻里圈 -->
+    <string name="str_title_circle">邻里圈</string>
+    <!-- 社区团 -->
+    <string name="str_title_purchase">社区团</string>
+    <!-- 我的 -->
+    <string name="str_title_mine">我的</string>
 </resources>

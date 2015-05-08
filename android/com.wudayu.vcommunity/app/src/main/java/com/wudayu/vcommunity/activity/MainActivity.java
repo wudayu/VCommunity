@@ -10,9 +10,10 @@ import android.widget.TextView;
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.adapter.MainActivityPageAdapter;
 import com.wudayu.vcommunity.constant.Constant;
-import com.wudayu.vcommunity.fragment.TestFirstFragment;
-import com.wudayu.vcommunity.fragment.TestSecondFragment;
-import com.wudayu.vcommunity.fragment.TestThirdFragment;
+import com.wudayu.vcommunity.fragment.HomeFragment;
+import com.wudayu.vcommunity.fragment.CircleFragment;
+import com.wudayu.vcommunity.fragment.MineFragment;
+import com.wudayu.vcommunity.fragment.PurchaseFragment;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.service.PushService;
 import com.wudayu.vcommunity.views.PageSelectBar;
@@ -36,15 +37,17 @@ public class MainActivity extends BaseActivity {
 
 	private static final int PAGE_COUNT = 3;
 
+	private int previousPageIndex = 0;
+
 	SwitchViewPager vpMain = null;
 	PageSelectBar psbMain = null;
 	ImageView ivBack = null;
 	TextView tvTitle = null;
 
-	TestFirstFragment testFirstFragment = null;
-	TestSecondFragment testSecondFragment = null;
-	TestThirdFragment testThirdFragment = null;
-	TestThirdFragment testForthFragment = null;
+	HomeFragment homeFragment = null;
+	CircleFragment circleFragment = null;
+	PurchaseFragment purchaseFragment = null;
+	MineFragment mineFragment = null;
 
 
 	@Override
@@ -62,15 +65,15 @@ public class MainActivity extends BaseActivity {
 		MainActivityPageAdapter adapter = new MainActivityPageAdapter(getSupportFragmentManager());
 
 		List<Fragment> fragments = new ArrayList<Fragment>();
-		testFirstFragment = new TestFirstFragment();
-		testSecondFragment = new TestSecondFragment();
-		testThirdFragment = new TestThirdFragment();
-		testForthFragment = new TestThirdFragment();
+		homeFragment = new HomeFragment();
+		circleFragment = new CircleFragment();
+		purchaseFragment = new PurchaseFragment();
+		mineFragment = new MineFragment();
 
-		fragments.add(testFirstFragment);
-		fragments.add(testSecondFragment);
-		fragments.add(testThirdFragment);
-		fragments.add(testForthFragment);
+		fragments.add(homeFragment);
+		fragments.add(circleFragment);
+		fragments.add(purchaseFragment);
+		fragments.add(mineFragment);
 
 		adapter.addAll(fragments);
 		vpMain.setAdapter(adapter);
@@ -82,10 +85,16 @@ public class MainActivity extends BaseActivity {
 		vpMain.setOnPageChangeListener(new OnPageChangeListener() {
 			@Override
 			public void onPageSelected(int pos) {
-				psbMain.selectItemUI(pos);
 				// TODO make this test code right
-				if (pos == 3)
+				if (pos != 3) {
+					psbMain.selectItemUI(pos);
+					setTitles(pos);
+					previousPageIndex = pos;
+				} else {
 					startActivity(new Intent(MainActivity.this, LoginActivity.class));
+					psbMain.selectItemUI(previousPageIndex);
+					vpMain.setCurrentItem(previousPageIndex);
+				}
 			}
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {}
@@ -103,6 +112,7 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void initData() {
 		ivBack.setVisibility(View.INVISIBLE);
+		setTitles(0);
 	}
 
 	@Override
@@ -115,10 +125,10 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		testFirstFragment.onActivityResult(requestCode, resultCode, data);
-		testSecondFragment.onActivityResult(requestCode, resultCode, data);
-		testThirdFragment.onActivityResult(requestCode, resultCode, data);
-		testForthFragment.onActivityResult(requestCode, resultCode, data);
+		homeFragment.onActivityResult(requestCode, resultCode, data);
+		circleFragment.onActivityResult(requestCode, resultCode, data);
+		purchaseFragment.onActivityResult(requestCode, resultCode, data);
+		mineFragment.onActivityResult(requestCode, resultCode, data);
 
 		super.onActivityResult(requestCode, resultCode, data);
 	}
@@ -139,8 +149,22 @@ public class MainActivity extends BaseActivity {
 		back_pressed = System.currentTimeMillis();
 	}
 
-	public void setTitle(String titleString) {
-		tvTitle.setText(titleString);
+	private void setTitles(int pos) {
+		Utils.debug("pos = " + pos);
+		int titleResource = -1;
+		switch (pos) {
+			case 0: titleResource = R.string.str_title_home;
+				break;
+			case 1: titleResource = R.string.str_title_circle;
+				break;
+			case 2: titleResource = R.string.str_title_purchase;
+				break;
+			case 3: titleResource = R.string.str_title_mine;
+				break;
+		}
+
+		if (titleResource > 0)
+			tvTitle.setText(titleResource);
 	}
 
 }

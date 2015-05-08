@@ -33,7 +33,7 @@ public class PageSelectBar extends LinearLayout {
 	// 图片非激活状态资源数组
 	private int[] imgInActived = new int[]{R.drawable.page_select_01_off, R.drawable.page_select_02_off, R.drawable.page_select_03_off, R.drawable.page_select_03_off};
 	// 文字资源数组
-	private int[] texts = new int[]{R.string.page_select_01, R.string.page_select_02, R.string.page_select_03, R.string.page_select_03};
+	private int[] texts = new int[]{R.string.page_select_01, R.string.page_select_02, R.string.page_select_03, R.string.page_select_04};
 	// 文字激活状态下颜色
 	private int textsColorActived = R.color.col_app;
 	// 文字非激活状态下文字
@@ -61,6 +61,7 @@ public class PageSelectBar extends LinearLayout {
 
 		renderPageSelectBar();
 		selectItem(0);
+		selectItemUI(0);
 	}
 
 	private void renderPageSelectBar() {
@@ -102,7 +103,8 @@ public class PageSelectBar extends LinearLayout {
 	}
 
 	private void selectItem(int position) {
-		selectItemUI(position);
+		// Delay ui transformation
+		// selectItemUI(position);
 
 		if (this.mPageSelectedListener != null)
 			this.mPageSelectedListener.onPageSelected(position);

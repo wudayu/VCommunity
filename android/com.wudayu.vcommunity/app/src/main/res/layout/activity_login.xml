@@ -117,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        android:paddingBottom="@dimen/dp30"
+        android:paddingBottom="@dimen/dp15"
         android:layout_marginLeft="@dimen/dp30"
         android:layout_marginRight="@dimen/dp30">
         <Button
