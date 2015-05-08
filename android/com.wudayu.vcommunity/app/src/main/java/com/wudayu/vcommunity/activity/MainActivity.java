@@ -1,11 +1,11 @@
 package com.wudayu.vcommunity.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.wudayu.vcommunity.R;
 import com.wudayu.vcommunity.adapter.MainActivityPageAdapter;
@@ -17,6 +17,9 @@ import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.service.PushService;
 import com.wudayu.vcommunity.views.PageSelectBar;
 import com.wudayu.vcommunity.views.SwitchViewPager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -35,6 +38,8 @@ public class MainActivity extends BaseActivity {
 
 	SwitchViewPager vpMain = null;
 	PageSelectBar psbMain = null;
+	ImageView ivBack = null;
+	TextView tvTitle = null;
 
 	TestFirstFragment testFirstFragment = null;
 	TestSecondFragment testSecondFragment = null;
@@ -51,6 +56,8 @@ public class MainActivity extends BaseActivity {
 	protected void initComponents() {
 		vpMain = (SwitchViewPager) findViewById(R.id.vp_main);
 		psbMain = (PageSelectBar) findViewById(R.id.psb_main);
+		ivBack = (ImageView) findViewById(R.id.iv_back);
+		tvTitle = (TextView) findViewById(R.id.tv_title);
 
 		MainActivityPageAdapter adapter = new MainActivityPageAdapter(getSupportFragmentManager());
 
@@ -95,6 +102,7 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void initData() {
+		ivBack.setVisibility(View.INVISIBLE);
 	}
 
 	@Override
@@ -129,6 +137,10 @@ public class MainActivity extends BaseActivity {
 		}
 
 		back_pressed = System.currentTimeMillis();
+	}
+
+	public void setTitle(String titleString) {
+		tvTitle.setText(titleString);
 	}
 
 }

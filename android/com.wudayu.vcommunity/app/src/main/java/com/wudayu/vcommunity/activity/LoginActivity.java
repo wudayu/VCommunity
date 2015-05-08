@@ -3,9 +3,11 @@ package com.wudayu.vcommunity.activity;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nineoldandroids.view.ViewHelper;
@@ -22,6 +24,7 @@ import java.util.List;
  */
 public class LoginActivity extends BaseActivity {
 
+    private ViewGroup layoutTitle;
     private ViewPager vpIdentity;
     private TextView tvName;
     private CheckBox cbRemPw;
@@ -39,6 +42,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initComponents() {
+        layoutTitle = (ViewGroup) findViewById(R.id.layout_title);
         vpIdentity = (ViewPager) findViewById(R.id.vp_identity);
         tvName = (TextView) findViewById(R.id.tv_name);
         cbRemPw = (CheckBox) findViewById(R.id.cb_rem_pw);
@@ -62,6 +66,9 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        // 设置layout_title背景
+        layoutTitle.setBackgroundResource(R.color.col_app);
+
         // 设置参与滚动动画的页面个数
         vpIdentity.setOffscreenPageLimit(2);
         // 设置半个多页面显示
@@ -69,7 +76,7 @@ public class LoginActivity extends BaseActivity {
         vpIdentity.setPageMargin(-margin);
         // 设置滚动透明动画
         vpIdentity.setPageTransformer(true, new DepthPageTransformer());
-
+        // 绑定适配器
         vpIdentity.setAdapter(pagerAdapter);
     }
 

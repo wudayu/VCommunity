@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 公用的标题栏 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_title"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/layout_title_height"
+    android:background="@drawable/shape_title_with_separator_bg" >
+    <!-- 返回 -->
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/dp05"
+        android:layout_alignParentLeft="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_title_back"
+        android:visibility="visible"
+        android:onClick="finishThis"/>
+    <!-- 其他占位符 -->
+    <ImageView
+        android:id="@+id/iv_edit"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/dp05"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_title_back"
+        android:visibility="invisible"/>
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/iv_back"
+        android:layout_toLeftOf="@id/iv_edit"
+        android:ellipsize="marquee"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:gravity="center"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        style="@style/TvStyleHugeWhite" />
+</RelativeLayout>

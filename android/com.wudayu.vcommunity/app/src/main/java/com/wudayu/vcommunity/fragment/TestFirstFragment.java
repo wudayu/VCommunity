@@ -65,7 +65,7 @@ public class TestFirstFragment extends BaseFragment {
 	}
 
 	@Override
-	protected void initEvents() {((MainActivity) getActivity()).getSupportActionBar();
+	protected void initEvents() {
 		tvCountDown.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {

@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.wudayu.vcommunity.constant.BroadcastActions;
 import com.wudayu.vcommunity.generic.Utils;
 import com.wudayu.vcommunity.views.ProcessingDialog;
@@ -25,7 +24,7 @@ import com.wudayu.vcommunity.views.ProcessingDialog;
  *
  **/
 
-public abstract class BaseActivity extends SherlockFragmentActivity {
+public abstract class BaseActivity extends FragmentActivity {
 
 	protected Context mContext;
 	protected ProcessingDialog processingDialog = null;

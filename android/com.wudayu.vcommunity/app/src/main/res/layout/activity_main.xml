@@ -2,6 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+    <include
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_title_height"
+        layout="@layout/layout_title" />
     <com.wudayu.vcommunity.views.PageSelectBar
         android:id="@+id/psb_main"
         android:layout_width="match_parent"
@@ -14,5 +19,6 @@
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/psb_main" />
+        android:layout_above="@id/psb_main"
+        android:layout_below="@id/layout_title"/>
 </RelativeLayout>

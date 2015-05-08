@@ -151,6 +151,7 @@
     <dimen name="px72">45sp</dimen>
     <dimen name="px140">88sp</dimen>
     <!-- 主界面参数 -->
+    <dimen name="layout_title_height">53dp</dimen>
     <!-- 加载框 -->
     <dimen name="padding_processing_dialog">13dp</dimen>
     <dimen name="side_processing_circle">29dp</dimen>

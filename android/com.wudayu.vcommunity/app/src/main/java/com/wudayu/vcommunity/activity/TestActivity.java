@@ -1,14 +1,6 @@
 package com.wudayu.vcommunity.activity;
 
-import android.os.AsyncTask;
-import android.view.View;
-
 import com.wudayu.vcommunity.R;
-import com.wudayu.vcommunity.generic.Utils;
-import uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout;
-import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
-import uk.co.senab.actionbarpulltorefresh.library.Options;
-import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 /**
  *
@@ -22,8 +14,6 @@ import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class TestActivity extends BaseActivity {
 
-	private PullToRefreshLayout mPullToRefreshLayout;
-
 	@Override
 	protected void initContainer() {
 		setContentView(R.layout.activity_test);
@@ -31,11 +21,11 @@ public class TestActivity extends BaseActivity {
 
 	@Override
 	protected void initComponents() {
-		mPullToRefreshLayout = (PullToRefreshLayout) findViewById(R.id.ptr_layout);
 	}
 
 	@Override
 	protected void initEvents() {
+		/*
 		// Now setup the PullToRefreshLayout
 		ActionBarPullToRefresh.from(this)
 				// options
@@ -75,6 +65,7 @@ public class TestActivity extends BaseActivity {
 				})
 				// Finally commit the setup to our PullToRefreshLayout
 				.setup(mPullToRefreshLayout);
+		*/
 	}
 
 	@Override
