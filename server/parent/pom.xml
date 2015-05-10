@@ -52,6 +52,7 @@
         <powermock.version>1.6.0</powermock.version>
         <selenium.version>2.42.2</selenium.version>
         <nosqlunit.version>0.8.0</nosqlunit.version>
+        <fastjson.version>1.1.42b</fastjson.version>
 
         <!-- Plugin的属性 -->
         <!-- 系统默认使用的编码为UTF-8 -->
@@ -163,7 +164,7 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${alibaba.connection.version}</version>
-                <scope>runtime</scope>
+                <!--<scope>runtime</scope>-->
             </dependency>
             <!-- connection pool end -->
 
@@ -256,6 +257,12 @@
                 <scope>runtime</scope>
             </dependency>
             <!-- JAR-XS end -->
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
 
             <!-- JMS begin -->
             <dependency>
