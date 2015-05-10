@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>server-core</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- SPRING basic begin -->
