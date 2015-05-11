@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<ehcache updateCheck="false" name="hibernateCache">
+    <!-- http://ehcache.org/ehcache.xml -->
+    <diskStore path="java.io.tmpdir/ehcache/vcommunity/hibernate" />
+
+    <!-- DefaultCache setting. -->
+    <defaultCache maxEntriesLocalHeap="10000" eternal="false" timeToIdleSeconds="300" timeToLiveSeconds="600"
+                  overflowToDisk="true" maxEntriesLocalDisk="100000" />
+
+    <!-- Special objects setting. -->
+    <cache name="com.vcommunity.android.entity.Attachment" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.CityEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.CommunityEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.AdminEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.CompaintEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.CommunityEntity.merchants" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.CompaintPicEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.MerchantEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.OwnerEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.PropertyCompanyEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+    <cache name="com.vcommunity.android.entity.PropertyEntity" maxEntriesLocalHeap="1000" eternal="true"
+           overflowToDisk="true" maxEntriesLocalDisk="10000" />
+</ehcache>

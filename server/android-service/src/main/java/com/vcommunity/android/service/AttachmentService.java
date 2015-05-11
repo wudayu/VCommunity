@@ -3,13 +3,11 @@ package com.vcommunity.android.service;
 import com.vcommunity.android.entity.Attachment;
 import com.vcommunity.android.repository.jpa.AttachmentJpaRepository;
 import com.vcommunity.android.repository.mybatis.AttachmentMyBatisRepository;
-import org.javasimon.aop.Monitored;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author James Chow
@@ -18,8 +16,7 @@ import javax.transaction.Transactional;
  * @since v1.0
  */
 @Component
-@Transactional
-@Monitored
+@Transactional(readOnly = true)
 public class AttachmentService {
 
     private AttachmentJpaRepository attachmentJpaRepository;
@@ -28,6 +25,7 @@ public class AttachmentService {
 
     private static Logger logger = LoggerFactory.getLogger(AttachmentService.class);
 
+    @Transactional(readOnly = false)
     public void save(Attachment attachment) {
         try {
             attachmentMyBatisRepository.insert(attachment);

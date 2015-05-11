@@ -1,11 +1,7 @@
 package com.vcommunity.android.rest;
 
-import com.vcommunity.android.rest.dto.TestUserEntityDTO;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.vcommunity.android.rest.vo.TestUserEntityDTO;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -15,13 +11,12 @@ import java.util.Date;
  * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
-@Controller
+@RestController
 @RequestMapping("/api/user")
 public class ConverterRestController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public @ResponseBody
-    TestUserEntityDTO findUser(@PathVariable("id") String id) {
+    public TestUserEntityDTO findUser(@PathVariable("id") String id) {
         TestUserEntityDTO dto = new TestUserEntityDTO();
         dto.setCreateDate(new Date());
         dto.setModifyDate(new Date());

@@ -1,7 +1,7 @@
 package com.vcommunity.android.repository.mybatis;
 
 import com.vcommunity.android.entity.Attachment;
-import com.vcommunity.server.modules.mybatis.repository.MyBatisRepository;
+import com.vcommunity.android.persistence.MyBatisRepository;
 
 /**
  * @author James Chow

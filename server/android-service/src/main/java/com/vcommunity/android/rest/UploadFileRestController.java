@@ -2,20 +2,19 @@ package com.vcommunity.android.rest;
 
 import com.vcommunity.android.entity.Attachment;
 import com.vcommunity.android.service.AttachmentService;
-import com.vcommunity.server.file.utils.UploadUtils;
-import com.vcommunity.server.modules.utils.PropertiesLoader;
-import com.vcommunity.server.rest.Message;
+import com.vcommunity.server.core.file.utils.UploadUtils;
 import org.apache.commons.fileupload.FileUploadException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +23,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author James Chow
@@ -31,21 +31,27 @@ import java.util.List;
  * @contact zhouxy.vortex@gmail.com
  * @since v1.0
  */
-@Controller
+@RestController
 @RequestMapping(value = { "/api" })
+@PropertySource("classpath:application-mimetype.properties")
 public class UploadFileRestController {
 
     private static Logger logger = LoggerFactory.getLogger(UploadFileRestController.class);
 
-    public static PropertiesLoader propertiesLoader = new PropertiesLoader("classpath:application-mimetype.properties");
+//    public static Properties propertiesLoader = new Properties("classpath:application-mimetype.properties");
+    @Autowired
+    private Environment environment;
 
     private AttachmentService attachmentService;
 
+    @Autowired
+    private UploadUtils uploadUtils;
+
     @RequestMapping("/upload/file")
-    public @ResponseBody Message upload(HttpServletRequest request, HttpServletResponse response) {
+    public Message upload(HttpServletRequest request, HttpServletResponse response) {
         Message message = new Message();
         try {
-            List<String> uploadFileNames = UploadUtils.uploadFile(request, response);
+            List<String> uploadFileNames = uploadUtils.uploadFile(request, response);
             message.setMessage("Upload file success.");
             message.setSuccess(true);
             message.setMessageType(Message.MESSAGE_TYPE_NORMAL);
@@ -67,7 +73,7 @@ public class UploadFileRestController {
                 if (fileName.lastIndexOf(".") >= 0) {
                     extension = fileName.substring(fileName.lastIndexOf(".") + 1);
                 }
-                String mimeType = propertiesLoader.getProperty(extension);
+                String mimeType = environment.getProperty(extension);
                 attachment.setMimeType(mimeType);
 
                 attachmentService.save(attachment);
@@ -95,7 +101,7 @@ public class UploadFileRestController {
         byte[] content = null;
         ResponseEntity<byte[]> entity = null;
         try {
-            content = UploadUtils.getFileContent(filePath);
+            content = uploadUtils.getFileContent(filePath);
 
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.set("Content-Type", attachment.getMimeType());

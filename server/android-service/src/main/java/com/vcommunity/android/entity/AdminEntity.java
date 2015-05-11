@@ -1,6 +1,5 @@
 package com.vcommunity.android.entity;
 
-import com.vcommunity.server.entity.BaseEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 

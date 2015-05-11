@@ -1,7 +1,6 @@
 package com.vcommunity.android.entity;
 
 import com.google.common.collect.Lists;
-import com.vcommunity.server.entity.BaseEntity;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;

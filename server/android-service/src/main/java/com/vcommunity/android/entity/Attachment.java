@@ -1,7 +1,5 @@
 package com.vcommunity.android.entity;
 
-import com.vcommunity.server.entity.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
