@@ -29,15 +29,15 @@ public class PageSelectBar extends LinearLayout {
 	private Context mContext;
 	private List<View> mItems;
 	// 图片激活状态资源数组
-	private int[] imgActived = new int[]{R.drawable.page_select_01_on, R.drawable.page_select_02_on, R.drawable.page_select_03_on, R.drawable.page_select_03_on};
+	private int[] imgActived = new int[]{R.drawable.page_select_01_on, R.drawable.page_select_02_on, R.drawable.page_select_03_on, R.drawable.page_select_04_on};
 	// 图片非激活状态资源数组
-	private int[] imgInActived = new int[]{R.drawable.page_select_01_off, R.drawable.page_select_02_off, R.drawable.page_select_03_off, R.drawable.page_select_03_off};
+	private int[] imgInActived = new int[]{R.drawable.page_select_01_off, R.drawable.page_select_02_off, R.drawable.page_select_03_off, R.drawable.page_select_04_off};
 	// 文字资源数组
 	private int[] texts = new int[]{R.string.page_select_01, R.string.page_select_02, R.string.page_select_03, R.string.page_select_04};
 	// 文字激活状态下颜色
 	private int textsColorActived = R.color.col_app;
 	// 文字非激活状态下文字
-	private int textsColorInActived = R.color.letter_grey_deep_11;
+	private int textsColorInActived = R.color.letter_grey_deep_6;
 	// 背景激活状态资源数组
 	private int[] bgActived = null;
 	// 背景非激活状态资源数组

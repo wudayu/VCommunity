@@ -38,7 +38,7 @@ public class RetrofitNetHandler implements INetHandler {
 	RestAdapter generalAdapter = null;
 
 	/** Generate the Singleton */
-	private final static RetrofitNetHandler mNetHandler = new RetrofitNetHandler();
+	private static volatile RetrofitNetHandler instance;
 
 	private RetrofitNetHandler() {
 		weatherAdapter = new RestAdapter.Builder().setEndpoint(SERVER_URL_WEATHER).setConverter(new JacksonConverter(JacksonConverter.TEXT_HTML_VALUE)).build();
@@ -46,7 +46,15 @@ public class RetrofitNetHandler implements INetHandler {
 	};
 
 	public static INetHandler getInstance() {
-		return mNetHandler;
+		if (instance == null) {
+			synchronized (RetrofitNetHandler.class) {
+				if (instance == null) {
+					instance = new RetrofitNetHandler();
+				}
+			}
+		}
+
+		return instance;
 	}
 
 	public static void toastNetworkError(Activity activity, RetrofitError error) {

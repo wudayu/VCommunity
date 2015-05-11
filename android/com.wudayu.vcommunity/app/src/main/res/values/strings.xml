@@ -22,7 +22,7 @@
     <string name="error_cannot_connect_server">无法连接服务器，请检查您的网络</string>
     <string name="error_data_format_wrong">服务器返回数据错误</string>
     <string name="error_server_got_problems">服务其出错，请稍后再试</string>
-    <string name="error_unexpected_error">不可预料的错误发生</string>
+    <string name="error_unexpected_error">发生了不可预料的错误</string>
 	<string name="error_local_database_has_no_data">没有本地数据</string>
 	<string name="error_local_database_connot_be_connected">无法连接本地数据</string>
     <!-- 交易结果页面 -->
