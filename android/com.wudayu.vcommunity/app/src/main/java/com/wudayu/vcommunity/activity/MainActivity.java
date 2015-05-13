@@ -94,6 +94,7 @@ public class MainActivity extends BaseActivity {
 					startActivity(new Intent(MainActivity.this, LoginActivity.class));
 					psbMain.selectItemUI(previousPageIndex);
 					vpMain.setCurrentItem(previousPageIndex);
+					Utils.debug("oops2");
 				}
 			}
 			@Override
@@ -105,6 +106,7 @@ public class MainActivity extends BaseActivity {
 			@Override
 			public void onPageSelected(int position) {
 				vpMain.setCurrentItem(position);
+				Utils.debug("oops");
 			}
 		});
 	}

@@ -43,7 +43,7 @@ public class MineFragment extends BaseFragment {
 
 	public static final String CURR_USER_ID = "4fef1bb5822e47ca9453443f7fa4820c";
 
-	ImageView ivHeader = null;
+	ImageView ivAvatar = null;
 
 	IImageHandler imageHandler = null;
 	INetHandler netHandler = null;
@@ -63,7 +63,7 @@ public class MineFragment extends BaseFragment {
 
 	@Override
 	protected void initComponents(View fragView) {
-		ivHeader = (ImageView) fragView.findViewById(R.id.iv_header);
+		ivAvatar = (ImageView) fragView.findViewById(R.id.iv_avatar);
 
 		imageHandler = UILImageHandler.getInstance(getActivity());
 		netHandler = RetrofitNetHandler.getInstance();
@@ -71,11 +71,11 @@ public class MineFragment extends BaseFragment {
 
 	@Override
 	protected void initEvents() {
-		ivHeader.setOnClickListener(new OnClickListener() {
+		ivAvatar.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				takePicturePath = imageHandler.getNewTmpImagePath();
-				imageHandler.selectGetImageWay(MineFragment.this.getActivity(), ivHeader, takePicturePath);
+				imageHandler.selectGetImageWay(MineFragment.this.getActivity(), ivAvatar, takePicturePath);
 			}
 		});
 	}
@@ -140,7 +140,7 @@ public class MineFragment extends BaseFragment {
 
 	private void setPicToView(String cuttedImagePath) {
 		String compressedPath = imageHandler.compressImage(cuttedImagePath);
-		imageHandler.loadHeaderImage(ImageLoaderHelper.URI_PREFIX_FILE + compressedPath, ivHeader);
+		imageHandler.loadHeaderImage(ImageLoaderHelper.URI_PREFIX_FILE + compressedPath, ivAvatar);
 		++currPicIndex;
 		filePathes.add(compressedPath);
 

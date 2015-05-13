@@ -3,11 +3,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/col_app_grey"
-    android:orientation="vertical" >
-    <ImageView
-        android:id="@+id/iv_header"
-        android:layout_width="@dimen/dp100"
-        android:layout_height="@dimen/dp100"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@null" />
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/rl_personal_info"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp110"
+                android:background="@android:color/white" >
+                <com.wudayu.vcommunity.views.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="@dimen/dp80"
+                    android:layout_height="@dimen/dp80"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:layout_marginTop="@dimen/dp05"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_avatar_mine_fg"
+                    app:mutate_background="true"
+                    app:oval="true" />
+                <TextView
+                    android:id="@+id/txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:layout_marginTop="@dimen/dp35"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:maxWidth="@dimen/dp130"
+                    android:singleLine="true"
+                    android:textColor="@color/letter_grey_deep_3"
+                    android:textSize="@dimen/px36" />
+                <TextView
+                    android:id="@+id/txt_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/txt_name"
+                    android:layout_below="@id/txt_name"
+                    android:layout_marginTop="@dimen/dp05"
+                    android:layout_toRightOf="@id/iv_avatar"
+                    android:maxWidth="@dimen/dp180"
+                    android:singleLine="true"
+                    android:textColor="@color/letter_grey_deep_8"
+                    android:textSize="@dimen/px28" />
+                <ImageView
+                    android:id="@+id/iv_certificate"
+                    android:layout_width="@dimen/dp44"
+                    android:layout_height="@dimen/dp18"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:layout_marginTop="@dimen/dp35"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="#FF000000" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
