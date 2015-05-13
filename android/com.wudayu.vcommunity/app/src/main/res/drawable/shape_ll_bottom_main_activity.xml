@@ -7,6 +7,11 @@
     </item>
     <item android:top="@dimen/dp01">
         <shape>
+            <solid android:color="@color/col_app_white" />
+        </shape>
+    </item>
+    <item android:top="@dimen/dp02">
+        <shape>
             <solid android:color="@color/letter_grey_deep_17" />
         </shape>
     </item>
