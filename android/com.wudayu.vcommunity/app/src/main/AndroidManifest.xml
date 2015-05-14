@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wudayu.vcommunity"
-    android:versionCode="2014102120"
+    android:versionCode="2015051421"
     android:versionName="0.0.01" >
     <uses-sdk
         android:minSdkVersion="8"
