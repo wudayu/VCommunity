@@ -75,7 +75,6 @@
 	<!--log4jdbc -->
 	<logger name="jdbc.sqltiming" level="INFO"/>
 	
-	<logger name="com.vcommunity.server.modules" level="INFO" />
 	<logger name="com.vcommunity.android" level="INFO" />
 	
 	<!-- cxf inbound/outbound logger -->
