@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    acitve: dev
+
+# Database configuration
+vc:
+  db:
+    enable: true
+    url: jdbc:mysql://192.168.0.100:3306/vc
+    username: root
+    password: admin
+    driverName: com.mysql.jdbc.Driver
+    pool:
+      jmxEnabled: true
+      testWhileIdle: false
+      testOnBorrow: true
+      validationQuery: SELECT 1
+      testOnReturn: false
+      validationInterval: 30000
+      timeBetweenEvictionRunsMillis: 30000
+      maxActive: 100
+      initialSize: 10
+      maxWait: 10000
+      removeAbandonedTimeout: 60
+      minEvictableIdleTimeMillis: 30000
+      minIdle: 10
+      logAbandoned: true
+      removeAbandoned: true

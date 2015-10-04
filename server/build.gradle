@@ -1,0 +1,64 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        mavenCentral()
+    }
+}
+
+
+allprojects {
+    group 'com.vcommunity'
+    version '1.0'
+
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        mavenCentral()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+
+    ext {
+        compileJava.options.encoding = "UTF-8"
+
+        springBootVersion = "1.2.6.RELEASE"
+        tomcatJdbcVersion = "7.0.29"
+        fastJsonVersion = "1.1.41"
+        guavaVersion = "18.0"
+        commonLangVersion = "3.4"
+    }
+}
+
+subprojects {
+    ext {
+        dbGroupId = "mysql"
+        dbArtifactedId = "mysql-connector-java"
+        dbVersion = "5.1.32"
+    }
+    dependencies {
+        compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+        compile "com.alibaba:fastjson:${fastJsonVersion}"
+        compile "com.google.guava:guava:${guavaVersion}"
+        compile "org.apache.commons:commons-lang3:${commonLangVersion}"
+    }
+}
+
+project('core') {
+    dependencies {
+        compile "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
+        compile "${dbGroupId}:${dbArtifactedId}:${dbVersion}"
+        compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    }
+}
+
+project('cache') {
+    dependencies {
+        compile project(':core')
+    }
+}
