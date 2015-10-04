@@ -10,6 +10,7 @@ export PATH=:$PATH:$JAVA_HOME/bin:$GRADLE_HOME/bin
 ```
 * Change directory to `~/where_you_clone_project_path` run `gradle run`.
 * Install **npm**. 
+
 Ubuntu >
 ```bash
 sudo apt-get install npm
@@ -19,6 +20,8 @@ Mac OSX >
 sudo brew install npm
 ```
 * Install **Nginx**.
+
+
 Ubuntu >
 ```bash
 sudo apt-get install nginx
