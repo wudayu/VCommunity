@@ -5,7 +5,7 @@ import com.vcommunity.core.ex.VCException;
 import java.io.Serializable;
 
 /**
- * Resultful return value, this object will JSONfiy by Alibaba FastJson.
+ * Restful return value, this object will JSONfiy by Alibaba FastJson.
  *
  * @author James
  * @since V1.0

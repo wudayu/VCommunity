@@ -28,6 +28,7 @@ allprojects {
         compileJava.options.encoding = "UTF-8"
 
         springBootVersion = "1.2.6.RELEASE"
+        springVersion = "4.1.7.RELEASE"
         tomcatJdbcVersion = "7.0.29"
         fastJsonVersion = "1.1.41"
         guavaVersion = "18.0"
@@ -53,7 +54,7 @@ project('core') {
     dependencies {
         compile "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
         compile "${dbGroupId}:${dbArtifactedId}:${dbVersion}"
-        compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+        compile "org.springframework:spring-jdbc:${springVersion}"
     }
 }
 

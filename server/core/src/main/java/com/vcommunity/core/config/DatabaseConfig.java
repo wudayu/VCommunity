@@ -3,14 +3,20 @@ package com.vcommunity.core.config;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.apache.tomcat.jdbc.pool.PoolProperties;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
+ * Datasource configure class.
+ *
  * @author James
  * @since V1.0
  */
 @Configuration
+@ConditionalOnExpression(value = "${vc.db.enable}")
 public class DatabaseConfig {
     @Value("${vc.db.driverName}")
     private String driverName;
@@ -80,6 +86,21 @@ public class DatabaseConfig {
        DataSource dataSource = new DataSource(poolProperties);
 
         return dataSource;
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate() {
+        JdbcTemplate template = new JdbcTemplate();
+        template.setDataSource(dataSource());
+        return template;
+    }
+
+    @Bean
+    public DataSourceTransactionManager txManager() {
+        DataSourceTransactionManager txManager = new DataSourceTransactionManager();
+        txManager.setDataSource(dataSource());
+
+        return txManager;
     }
 
 
