@@ -17,6 +17,8 @@ public class Value implements Serializable {
     private Integer ret_code = 0;
     private String ret_msg;
 
+    public Value() {}
+
     public Value(Object ret) {
         this.ret = ret;
     }
@@ -24,7 +26,7 @@ public class Value implements Serializable {
     public Value(VCException e) {
         this.ret_code = e.getCode();
         this.ret_msg = e.getMessage();
-        this.ret = e;
+        this.ret = e.getMessage();
     }
 
     public Object getRet() {

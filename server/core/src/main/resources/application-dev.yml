@@ -3,7 +3,7 @@ vc:
   db:
     enable: true
     url: jdbc:mysql://192.168.0.100:3306/vc
-    username: root
+    username: dev
     password: admin
     driverName: com.mysql.jdbc.Driver
     pool:

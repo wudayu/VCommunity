@@ -27,12 +27,12 @@ allprojects {
     ext {
         compileJava.options.encoding = "UTF-8"
 
-        springBootVersion = "1.2.6.RELEASE"
-        springVersion = "4.1.7.RELEASE"
-        tomcatJdbcVersion = "7.0.29"
-        fastJsonVersion = "1.1.41"
-        guavaVersion = "18.0"
-        commonLangVersion = "3.4"
+        springBootVersion =                 "1.2.6.RELEASE"
+        springVersion     =                 "4.1.7.RELEASE"
+        tomcatJdbcVersion =                 "7.0.29"
+        fastJsonVersion   =                 "1.1.41"
+        guavaVersion      =                 "18.0"
+        commonLangVersion =                 "3.4"
     }
 }
 

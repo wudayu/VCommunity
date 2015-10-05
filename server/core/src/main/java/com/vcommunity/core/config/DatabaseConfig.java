@@ -83,9 +83,7 @@ public class DatabaseConfig {
         poolProperties.setUsername(userName);
         poolProperties.setPassword(password);
 
-       DataSource dataSource = new DataSource(poolProperties);
-
-        return dataSource;
+        return new DataSource(poolProperties);
     }
 
     @Bean
@@ -97,10 +95,8 @@ public class DatabaseConfig {
 
     @Bean
     public DataSourceTransactionManager txManager() {
-        DataSourceTransactionManager txManager = new DataSourceTransactionManager();
-        txManager.setDataSource(dataSource());
 
-        return txManager;
+        return new DataSourceTransactionManager(dataSource());
     }
 
 
