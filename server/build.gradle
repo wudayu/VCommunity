@@ -33,6 +33,7 @@ allprojects {
         fastJsonVersion   =                 "1.1.41"
         guavaVersion      =                 "18.0"
         commonLangVersion =                 "3.4"
+        httlVersion       =                 "1.0.11"
     }
 }
 
@@ -55,6 +56,7 @@ project('core') {
         compile "org.apache.tomcat:tomcat-jdbc:${tomcatJdbcVersion}"
         compile "${dbGroupId}:${dbArtifactedId}:${dbVersion}"
         compile "org.springframework:spring-jdbc:${springVersion}"
+        compile "com.github.httl:httl:${httlVersion}"
     }
 }
 

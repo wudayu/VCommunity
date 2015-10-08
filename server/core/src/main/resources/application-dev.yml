@@ -22,3 +22,7 @@ vc:
       minIdle: 10
       logAbandoned: true
       removeAbandoned: true
+  thread:
+    corePoolSize: 5
+    maxPoolSize: 10
+    queueCapacity: 25

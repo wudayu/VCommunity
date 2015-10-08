@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -19,5 +20,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
         DataSourceTransactionManagerAutoConfiguration.class })
 @ComponentScan(value = { "com.vcommunity.core", "com.vcommunity.cache" })
 @EnableTransactionManagement
+@EnableAsync
 public class CoreApplication {
 }
